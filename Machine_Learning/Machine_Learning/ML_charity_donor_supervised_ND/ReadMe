@@ -1,10 +1,7 @@
-In this project, I have applied supervised 
-learning techniques and an analytical mind on data collected for the U.S. 
-census to help CharityML (a fictitious charity organization) identify people most likely to 
-donate to their cause. I have first explored  the data to learn how the census data is recorded. 
-Next, I have applied a series of transformations and preprocessing techniques to manipulate the data
-into a workable format. I have then then evaluated several supervised learners of my choice on the data, 
-  and consider which is best suited for the solution. Afterwards, I have optimized  the model .
+In this project, I have applied supervised learning techniques and an analytical mind on data collected for the U.S. 
+census to help CharityML (a fictitious charity organization) identify people most likely to donate to their cause.
+I have first explored  the data to learn how the census data is recorded. Next, I have applied a series of transformations
+and preprocessing techniques to manipulate the data into a workable format. I have then then evaluated several supervised learners of my choice on the data,  and consider which is best suited for the solution. Afterwards, I have optimized  the model .
   Eg of supervised learning i have used:-
 Gaussian Naive Bayes (GaussianNB)
 Decision Trees
