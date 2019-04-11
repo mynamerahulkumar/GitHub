@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>HMM Tagger</title>
+<title>HMM_Tagger</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13246,7 +13246,7 @@ b100-35577
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="s2">&quot;tags-universal.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;brown-universal.txt&quot;</span><span class="p">,</span> <span class="n">train_test_split</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
@@ -13331,7 +13331,7 @@ len(subset) == 2  # because there are two sentences</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;b100-38532&#39;</span>
@@ -13379,7 +13379,7 @@ tags:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There are a total of </span><span class="si">{}</span><span class="s2"> samples of </span><span class="si">{}</span><span class="s2"> unique words in the corpus.&quot;</span>
@@ -13431,7 +13431,7 @@ There are 5521 words in the test set that are missing in the training set.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># accessing words with Dataset.X and tags with Dataset.Y </span>
@@ -13482,7 +13482,7 @@ Labels 2: (&#39;CONJ&#39;, &#39;PRT&#39;, &#39;VERB&#39;, &#39;PRT&#39;, &#39;VE
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># use Dataset.stream() (word, tag) samples for the entire corpus</span>
@@ -13551,10 +13551,11 @@ Stream (word, tag) pairs:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">pair_counts</span><span class="p">(</span><span class="n">sequences_A</span><span class="p">,</span> <span class="n">sequences_B</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">Counter</span><span class="p">,</span><span class="n">defaultdict</span>
+<span class="k">def</span> <span class="nf">pair_counts</span><span class="p">(</span><span class="n">sequences_A</span><span class="p">,</span> <span class="n">sequences_B</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Return a dictionary keyed to each unique value in the first sequence list</span>
 <span class="sd">    that counts the number of occurrences of the corresponding value from the</span>
 <span class="sd">    second sequences list.</span>
@@ -13564,11 +13565,18 @@ Stream (word, tag) pairs:
 <span class="sd">    you should return a dictionary such that pair_counts[NOUN][time] == 1244</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># TODO: Finish this function!</span>
+    
+    <span class="n">d</span><span class="o">=</span><span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span><span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">word</span><span class="p">,</span><span class="n">tag</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">sequences_A</span><span class="p">,</span><span class="n">sequences_B</span><span class="p">):</span>
+        <span class="n">d</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="n">word</span><span class="p">]</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">d</span>
     <span class="k">raise</span> <span class="ne">NotImplementedError</span>
 
 
 <span class="c1"># Calculate C(t_i, w_i)</span>
-<span class="n">emission_counts</span> <span class="o">=</span> <span class="n">pair_counts</span><span class="p">(</span><span class="c1"># TODO: YOUR CODE HERE)</span>
+<span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="n">tag</span> <span class="k">for</span> <span class="n">i</span><span class="p">,(</span><span class="n">word</span><span class="p">,</span><span class="n">tag</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">training_set</span><span class="o">.</span><span class="n">stream</span><span class="p">())]</span>
+<span class="n">words</span><span class="o">=</span><span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">i</span><span class="p">,(</span><span class="n">word</span><span class="p">,</span><span class="n">tag</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">training_set</span><span class="o">.</span><span class="n">stream</span><span class="p">())]</span>
+<span class="n">emission_counts</span> <span class="o">=</span> <span class="n">pair_counts</span><span class="p">(</span><span class="n">words</span><span class="p">,</span><span class="n">tags</span><span class="p">)</span>
 
 <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">emission_counts</span><span class="p">)</span> <span class="o">==</span> <span class="mi">12</span><span class="p">,</span> \
        <span class="s2">&quot;Uh oh. There should be 12 tags in your dictionary.&quot;</span>
@@ -13578,6 +13586,25 @@ Stream (word, tag) pairs:
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[11]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div class="alert alert-block alert-success">Your emission counts look good!</div>
+</div>
+
+</div>
+
 </div>
 </div>
 
