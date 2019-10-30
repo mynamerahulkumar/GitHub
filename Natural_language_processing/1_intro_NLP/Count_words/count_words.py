@@ -8,8 +8,13 @@ def count_words(text):
     text=text.lower()
     # TODO: Split text into tokens (words), leaving out punctuation
     # (Hint: Use regex to split on non-alphanumeric characters)
-    
+    words=text.split()
     # TODO: Aggregate word counts using a dictionary
+    for word in words:
+        if word in counts:
+            counts[word]+=1
+        else:
+            counts[word]=1
     
     return counts
 
