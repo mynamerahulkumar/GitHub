@@ -44,7 +44,7 @@ select  * from PRODUCT where  PRODUCT_CLASS_CODE =2050 and PRODUCT_PRICE between
 #(17 ROWS)[NOTE:ORDER_HEADER TABLE]
 
 select * from ORDER_HEADER where  ORDER_STATUS='In process';
-
+use orders;
 #10.	Write a query to display all the records of order    details which are  shipped and payment_mode either ‘credit card’ or ‘net banking’ and payment_date greater than ‘2013-01-01’.(36 rows)[NOTE : ORDER_HEADER TABLE]
 select  * from ORDER_HEADER where  ORDER_STATUS='Shipped' and PAYMENT_MODE in ('Credit Card','Net Banking') and PAYMENT_DATE >='2013-01-01';
 
