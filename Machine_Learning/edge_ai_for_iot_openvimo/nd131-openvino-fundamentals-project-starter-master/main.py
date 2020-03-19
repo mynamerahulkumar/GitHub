@@ -185,12 +185,14 @@ def main():
             cv2.putText(frame, inf_time_message, (15, 15),
                         cv2.FONT_HERSHEY_COMPLEX, 0.5, (200, 10, 10), 1)
 
+
             # When new person enters the video
             if current_count > last_count:
                 start_time = time.time()
                 total_count = total_count + current_count - last_count
                 client.publish("person", json.dumps({"total": total_count}))
-
+            if total_count >= 2:
+                cv2.putText(frame, 'total person >=2', (30, 30), cv2.FONT_HERSHEY_COMPLEX, 0.5, (0, 0, 255), 1)
             # Person duration in the video is calculated
             if current_count < last_count:
                 duration = int(time.time() - start_time)
