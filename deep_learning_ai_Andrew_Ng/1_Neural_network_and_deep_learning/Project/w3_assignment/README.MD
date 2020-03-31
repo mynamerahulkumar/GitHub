@@ -1,6 +1,8 @@
+Planar_data_classification_with_onehidden_layer_v6c.ipynb
+
 Planar data classification with a hidden layer
  In this notebook I have generated red and blue points to form a flower. I have then fitted a neural network to correctly classify the points.I have tried with  different layers and see the results.
-![neural network to color](https://drive.google.com/file/d/1DS3bznXa5j8_rF4rdHEUih6avpPOEMxJ/view?usp=sharing)
+![](images/planar.png)
 
 These are the skill I have learned
 
