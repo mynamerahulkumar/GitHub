@@ -1,6 +1,7 @@
+1)-Practical aspect of Deep Learning
 Regularization
 This  hyper parameters tuning specialization project. It is very important to  regularize model properly because it could dramatically improve results.
- <image src="images/regularization.png">
+ <image src="Project/images/regularization.png">
 In this project I have done following task:
 - Understand that different regularization methods that could help your model.
 - Implement dropout and see it work on data.
