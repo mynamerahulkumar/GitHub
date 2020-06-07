@@ -20,3 +20,12 @@ I have done following optimization to get the minimal cost:
 - Recognize the importance of mini-batch gradient descent
 
 - Learn the effects of momentum on the overall performance of your model
+
+3)
+Tensorflow
+
+In this notebook I have done all the basics of Tensorflow. I have done samething using numpy in my previous project. I have understand what Tensors and operations are, as well as how to execute them in a computation graph.
+
+I have implemented deep learning models using Tensorflow using SIGNS dataset, I have build a deep neural network model to recognize numbers from 0 to 5 in sign language with a pretty impressive accuracy.
+<img src="Project/w3_hyperparameter_tunning_batch_normalization_programming_framework/images/hands.png">
+
