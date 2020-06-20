@@ -1,13 +1,12 @@
-I am working on a self-driving car project for learning. I had build a car detection system.Data is  collected from DRIVE.AI with the help of Andrew NG. 
+I am working on a self-driving car project . I had build a car detection system.Data is  collected from DRIVE.AI with the help of Andrew NG. 
 
  <video width="320" height="240" controls>
-  <source src="movie.mp4" type="video/mp4">
-  <source src="movie.ogg" type="video/ogg">
+  <source src="images/road_video_compressed2.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video> 
 I have gathered all these images into a folder and have labelled them by drawing bounding boxes around every car you found. Here's an example of what your bounding boxes look like.
 
-<img src
+<image src="images/car_detect.png" >
 
 I have 80 classes that I want the object detector to recognize, I have represented the class label cc either as an integer from 1 to 80, or as an 80-dimensional vector (with 80 numbers) one component of which is 1 and the rest of which are 0. The video lectures had used the latter representation; in this notebook, I have used both representations, depending on which is more convenient for a particular step.
 
