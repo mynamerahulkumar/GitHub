@@ -24,15 +24,17 @@ Figure 3: Basic RNN. The input sequence x=(x⟨1⟩,x⟨2⟩,...,x⟨Tx⟩)x=(x�
 
 The following figure shows the operations of an LSTM-cell.
 <img src="w1_RNN_LSTM/images/LSTM_figure4_v3a.png" style="width:500;height:400px;">
-igure 4: LSTM-cell. This tracks and updates a "cell state" or memory variable c⟨t⟩c⟨t⟩ at every time-step, which can be different from a⟨t⟩a⟨t⟩.
+
+
+LSTM-cell. This tracks and updates a "cell state" or memory variable c⟨t⟩c⟨t⟩ at every time-step, which can be different from a⟨t⟩a⟨t⟩.
 Note, the softmax∗softmax∗ includes a dense layer and softmax
 
-Similar to the RNN example above, you will start by implementing the LSTM cell for a single time-step. Then you can iteratively call it from inside a "for-loop" to have it process an input with TxTx time-steps.
+Similar to the RNN example above, I have implemented the LSTM cell for a single time-step. Then you can iteratively call it from inside a "for-loop" to have it process an input with TxTx time-steps.
 
 Forward pass for LSTM
+<img src="w1_RNN_LSTM/images/LSTM_rnn.png" style="width:500;height:300px;">
 
-Now that you have implemented one step of an LSTM, you can now iterate this over this using a for-loop to process a sequence of TxTx inputs. 
+Now that you have implemented one step of an LSTM, I can now iterate this over this using a for-loop to process a sequence of TxTx inputs. 
 
-<img src="images/LSTM_rnn.png" style="width:500;height:300px;">
  
 
