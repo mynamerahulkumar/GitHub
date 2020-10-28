@@ -2,6 +2,7 @@ I tried to get data from twitter based on hastag
 tracklist = ['#covid19', '#lockdown', '#socialdistancing']
 Update location:-
 https://stackoverflow.com/questions/34061693/scrape-tweets-by-tweet-location-and-user-location
+
 myStream.filter(location= [-122.75,36.8,-121.75,37.8])
 
 
