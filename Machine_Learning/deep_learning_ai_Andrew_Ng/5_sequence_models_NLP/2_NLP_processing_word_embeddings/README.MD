@@ -4,23 +4,21 @@
 
 <img src="images/1_emojify.png">
 
-SECOND PROJECT
-Trigger Word Detection
 
 
-I have applyed deep learning to speech recognition. I have constructed a speech dataset and implement an algorithm for trigger word detection (sometimes also called keyword detection, or wake word detection).
 
-    Trigger word detection is the technology that allows devices like Amazon Alexa, Google Home, Apple Siri, and Baidu DuerOS to wake up upon hearing a certain word.
-    For this exercise, our trigger word will be "Activate." Every time it hears you say "activate," it will make a "chiming" sound.
-  I have record a clip of myseld talking, and have the algorithm trigger a chime when it detects you saying "activate."
-   It can use on laptop to "activate" it starts up your favorite app, or turns on a network connected lamp in your house, or triggers some other event?
 
-   <img src="images/sound.png">
 In this Project I have learned:
 
-    Structure a speech recognition project
-    Synthesize and process audio recordings to create train/dev datasets
-    Train a trigger word detection model and make predictions
+    If you have an NLP task where the training set is small, using word embeddings can help your algorithm significantly.
+Word embeddings allow your model to work on words in the test set that may not even appear in the training set.
+Training sequence models in Keras (and in most other deep learning frameworks) requires a few important details:
+To use mini-batches, the sequences need to be padded so that all the examples in a mini-batch have the same length.
+An Embedding() layer can be initialized with pretrained values.
+These values can be either fixed or trained further on your dataset.
+If however your labeled dataset is small, it's usually not worth trying to train a large pre-trained set of embeddings.
+LSTM() has a flag called return_sequences to decide if you would like to return every hidden states or only the last one.
+You can use Dropout() right after LSTM() to regularize your network.
 
 
 
