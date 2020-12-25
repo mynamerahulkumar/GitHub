@@ -1,5 +1,5 @@
 # First project Predict the name of dinosaurs
-(RNN_predicting_possible_names)
+### (RNN_predicting_possible_names)
 Welcome to Dinosaurus Island! 65 million years ago, dinosaurs existed, and in this assignment they are back. You are in charge of a special task. Leading biology researchers are creating new breeds of dinosaurs and bringing them to life on earth, and your job is to give names to these dinosaurs. If a dinosaur does not like its name, it might go berserk, so choose wisely! 
 <img src="RNN_predicting_possible_names/images/dianasour.png">
 Luckily you have learned some deep learning and you will use it to save the day. Your assistant has collected a list of all the dinosaur names they could find, and compiled them into this dataset. (Feel free to take a look by clicking the previous link.) To create new dinosaur names, you will build a character level language model to generate new names. Your algorithm will learn the different name patterns, and randomly generate new names. Hopefully this algorithm will keep you and your team safe from the dinosaurs' wrath!
@@ -12,7 +12,7 @@ By completing this assignment you will learn:
     Why clipping the gradients is important
 
 # Second project Emojification 
-(2_NLP_processing_word_embeddings)
+### (2_NLP_processing_word_embeddings)
 <img src="2_NLP_processing_word_embeddings/images/1_cosine_similarlity.png">
 <img src="2_NLP_processing_word_embeddings/images/2_word_analogy.png">
 <img src="2_NLP_processing_word_embeddings/images/4_word_analogy_op.png">
@@ -40,7 +40,7 @@ You can use Dropout() right after LSTM() to regularize your network.
 
 
 # Third project-Detection of Trigger word
-(3_trigger_word_detection)
+### (3_trigger_word_detection)
 Trigger Word Detection
 Final programming assignment of this specialization!
 
