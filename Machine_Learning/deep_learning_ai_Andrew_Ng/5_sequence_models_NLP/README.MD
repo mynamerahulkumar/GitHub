@@ -11,18 +11,18 @@ By completing this assignment you will learn:
     Why clipping the gradients is important
 
 # Second project Emojification 
-<img src="images/1_cosine_similarlity.png">
-<img src="images/2_word_analogy.png">
-<img src="images/4_word_analogy_op.png">
+<img src="2_NLP_processing_word_embeddings/images/1_cosine_similarlity.png">
+<img src="2_NLP_processing_word_embeddings/images/2_word_analogy.png">
+<img src="2_NLP_processing_word_embeddings/images/4_word_analogy_op.png">
 
-<img src="images/1_emojify.png">
+<img src="2_NLP_processing_word_embeddings/images/1_emojify.png">
 
-#Emojify 
-
-
+## Emojify 
 
 
-   <img src="images/sound.png">
+
+
+   <img src="2_NLP_processing_word_embeddings/images/sound.png">
 In this Project I have learned:
 
     If you have an NLP task where the training set is small, using word embeddings can help your algorithm significantly.
