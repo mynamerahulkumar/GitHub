@@ -17,14 +17,13 @@ By completing this assignment you will learn:
 
 <img src="2_NLP_processing_word_embeddings/images/1_emojify.png">
 
-## Emojify 
 
 
 
 
 In this Project I have learned:
 
-    If you have an NLP task where the training set is small, using word embeddings can help your algorithm significantly.
+If you have an NLP task where the training set is small, using word embeddings can help your algorithm significantly.
 Word embeddings allow your model to work on words in the test set that may not even appear in the training set.
 Training sequence models in Keras (and in most other deep learning frameworks) requires a few important details:
 To use mini-batches, the sequences need to be padded so that all the examples in a mini-batch have the same length.
