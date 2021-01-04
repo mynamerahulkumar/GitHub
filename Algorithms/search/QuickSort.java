@@ -1,51 +1,65 @@
-import java.io.*;
-import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
+package search;
 
 public class QuickSort {
-
-    static int[] quickSort(int[] arr) {
-        // Complete this function
-        int len=arr.length;
-        int leftArr[]=new int[len];
-        int rightArr[]=new int[len];
-        int p=arr[0];
-        int k=0;
-        int j=0;
-        int i=0;
-        for( i=1;i<len;i++){
-            if(arr[i]<=p)
-                leftArr[k++]=arr[i];
-            else
-              rightArr[j++]=arr[i];
+    /* This function takes last element as pivot,
+       places the pivot element at its correct
+       position in sorted array, and places all
+       smaller (smaller than pivot) to left of
+       pivot and all greater elements to right
+       of pivot */
+    int partition(int arr[],int low,int high){
+        int pivot=arr[high];
+        int i=(low-1);//index of smaller element
+        for(int j=low;j<high;j++){
+            // If current element is smaller than the pivot
+            if(arr[j]<pivot){
+                i++;
+                // swap arr[i] and arr[j]
+                int temp=arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
+            }
         }
-        for(i=0;i<k;i++){
-            arr[i]=leftArr[i];
+        // swap arr[i+1] and arr[high] (or pivot)
+        int temp=arr[i+1];
+        arr[i+1]=arr[high];
+        arr[high]=temp;
+        return i+1;
+    }
+     /* The main function that implements QuickSort()
+      arr[] --> Array to be sorted,
+      low  --> Starting index,
+      high  --> Ending index */
+    void sort(int arr[],int low,int high){
+        if(low<high){
+            /* pi is partitioning index, arr[pi] is
+              now at right place */
+            int pi=partition(arr,low,high);
+            // Recursively sort elements before
+            // partition and after partition
+            sort(arr,low,pi-1);
+            sort(arr,pi+1,high);
         }
-        arr[i++]=p;
-        for(int m=0;m<j;m++){
-            arr[i++]=rightArr[m];
-        }
-        return arr;
-        
+    }
+    /* A utility function to print array of size n */
+    static void printArray(int arr[])
+    {
+        int n = arr.length;
+        for (int i=0; i<n; ++i)
+            System.out.print(arr[i]+" ");
+        System.out.println();
     }
 
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int n = in.nextInt();
-        int[] arr = new int[n];
-        for(int arr_i = 0; arr_i < n; arr_i++){
-            arr[arr_i] = in.nextInt();
-        }
-        int[] result = quickSort(arr);
-        for (int i = 0; i < result.length; i++) {
-            System.out.print(result[i] + (i != result.length - 1 ? " " : ""));
-        }
-        System.out.println("");
+    // Driver program
+    public static void main(String args[])
+    {
+        int arr[] = {10, 7, 8, 9, 1, 5};
+        int n = arr.length;
 
+        QuickSort ob = new QuickSort();
+        ob.sort(arr, 0, n-1);
 
-        in.close();
+        System.out.println("sorted array");
+        printArray(arr);
     }
 }
