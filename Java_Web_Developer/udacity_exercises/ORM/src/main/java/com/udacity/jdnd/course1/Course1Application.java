@@ -1,13 +1,13 @@
-package com.udacity.jdnd.course1exercises;
+package com.udacity.jdnd.course1;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Course1ExercisesApplication {
+public class Course1Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Course1ExercisesApplication.class, args);
+		SpringApplication.run(Course1Application.class, args);
 	}
 
 }

@@ -1,8 +1,5 @@
 package com.udacity.jdnd.course1exercises.lesson2.exercise1;
 
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
-
 import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.List;
@@ -11,7 +8,6 @@ import java.util.Map;
 /**
  * Pretend repository implementation
  */
-@Repository //@Componet will also work
 public class FoodRepository {
     private Map<MealTime, List<FoodData>> foodDatabase = new EnumMap<>(MealTime.class);
 

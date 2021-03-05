@@ -16,21 +16,21 @@ public class ReviewApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ReviewApplication.class, args);
 	}
-	@Primary
+
 	@Bean
-	public String basicMessage(){
-		System.out.println("Inside basic message");
-		return "Hello ";
+	public String message(){
+		System.out.println("Inside message");
+		return "Hello spring";
 	}
 	@Bean
-	public String compoundMessage(String basicMessage){
-		System.out.println("Inside compound message -"+basicMessage);
-		return "Inside compound message with basicmessage"+basicMessage;
+	public String uppercaseBean(MessageService messageService){
+		System.out.println("Uppercase bean created");
+		return messageService.upperCase();
 	}
 	@Bean
-	public int characterCount(String message){	// receive basic message because of primary
-		System.out.println("character count-"+message);
-		return message.length();
+	public String lowerCaseBean(MessageService messageService){
+		System.out.println("Lowercase bean created");
+		return messageService.lowercase();
 	}
 
 }

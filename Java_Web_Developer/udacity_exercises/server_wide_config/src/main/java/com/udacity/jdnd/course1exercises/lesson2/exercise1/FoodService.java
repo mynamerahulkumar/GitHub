@@ -1,13 +1,8 @@
 package com.udacity.jdnd.course1exercises.lesson2.exercise1;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-
 /**
  * Food Service that performs business logic operations regarding food
  */
-@Service //@Component will also work
 public class FoodService {
     private FoodRepository foodRepository;
 
