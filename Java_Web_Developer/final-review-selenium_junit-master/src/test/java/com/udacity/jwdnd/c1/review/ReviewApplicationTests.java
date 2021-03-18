@@ -2,69 +2,64 @@ package com.udacity.jwdnd.c1.review;
 
 import com.udacity.jwdnd.c1.review.model.ChatMessage;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class ReviewApplicationTests {
+public class ReviewApplicationTests {
+    @LocalServerPort
+    public int port;
 
-	@LocalServerPort
-	public int port;
+    public static WebDriver driver;
 
-	public static WebDriver driver;
+    public String baseURL;
 
-	public String baseURL;
+    @BeforeAll
+    public static void beforeAll() {
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
 
-	@BeforeAll
-	public static void beforeAll() {
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
+    }
 
-	}
+    @AfterAll
+    public static void afterAll() {
+        driver.quit();
+        driver = null;
+    }
 
-	@AfterAll
-	public static void afterAll() {
-		driver.quit();
-		driver = null;
-	}
+    @BeforeEach
+    public void beforeEach() {
+        baseURL = baseURL = "http://localhost:" + port;
+    }
 
-	@BeforeEach
-	public void beforeEach() {
-		baseURL = baseURL = "http://localhost:" + port;
-	}
-
-	@Test
-	public void testUserSignupLoginAndSubmitMessage() {
-		String username = "pzastoup";
-		String password = "whatabadpassword";
-		String messageText = "Hello!";
+    @Test
+    public void testUserSignupLoginAndSubmitMessage() {
+        String username = "pzastoup";
+        String password = "whatabadpassword";
+        String messageText = "Hello!";
 
 
-		driver.get(baseURL + "/signup");
+        driver.get(baseURL + "/signup");
 
-		SignupPage signupPage = new SignupPage(driver);
-		signupPage.signup("Peter", "Zastoupil", username, password);
+        SignupPage signupPage = new SignupPage(driver);
+        signupPage.signup("Peter", "Zastoupil", username, password);
 
-		driver.get(baseURL + "/login");
+        driver.get(baseURL + "/login");
 
-		LoginPage loginPage = new LoginPage(driver);
-		loginPage.login(username, password);
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login(username, password);
 
-		ChatPage chatPage = new ChatPage(driver);
-		chatPage.sendChatMessage(messageText);
+        ChatPage chatPage = new ChatPage(driver);
+        chatPage.chat(messageText);
 
-		ChatMessage sentMessage = chatPage.getFirstMessage();
+        ChatMessage sentMessage = chatPage.getChatMessage();
 
-		assertEquals(username, sentMessage.getUsername());
-		assertEquals(messageText, sentMessage.getMessageText());
-	}
-
+        assertEquals(username, sentMessage.getUsername());
+        assertEquals(messageText, sentMessage.getMessageText());
+    }
 }

@@ -7,23 +7,21 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
 
-    @FindBy(css="#inputUsername")
-    private WebElement usernameField;
+    @FindBy(css = "#inputUsername")
+    private WebElement inputUsername;
 
-    @FindBy(css="#inputPassword")
-    private WebElement passwordField;
+    @FindBy(css = "#inputPassword")
+    private WebElement inputPassword;
 
-    @FindBy(css="#submit-button")
+    @FindBy(css = "#submit-button")
     private WebElement submitButton;
 
-    public LoginPage(WebDriver webDriver) {
-        PageFactory.initElements(webDriver, this);
+    public  LoginPage(WebDriver driver){
+        PageFactory.initElements(driver,this);
     }
-
-    public void login(String username, String password) {
-        this.usernameField.sendKeys(username);
-        this.passwordField.sendKeys(password);
+    public void login(String username,String password){
+        this.inputUsername.sendKeys(username);
+        this.inputPassword.sendKeys(password);
         this.submitButton.click();
     }
-
 }
