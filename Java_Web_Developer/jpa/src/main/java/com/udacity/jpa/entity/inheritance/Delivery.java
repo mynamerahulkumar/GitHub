@@ -18,7 +18,7 @@ public class Delivery {
     private LocalDateTime deliveryTime;
     @Type(type = "yes_no")
     private Boolean completed;
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "delivery")
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "delivery",cascade = CascadeType.REMOVE)
     private List<Plant> plants;
     public Long getId() {
         return id;
