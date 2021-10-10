@@ -1,4 +1,4 @@
-# Image Recoginition Android app with google vision App.
+# Image Recoginition Android app with Google vision App.
 ## Problem statement
 
 We wanted to help the student scan the image and get the text from the text and they can edit the text in mobile.Sometime students wants to take data from image and use it as message to send to their peers or professor after some modification.
