@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<h1 th:text="${welcomeMessage}">Hello world</h1>-->
+<h1 th:each="msg:${greetings}"
+    th:text="${msg}"
+    th:unless="${msg.contains('goodbye')}">Welcome homepage
+</h1>
+<form action="#" th:object="${newMessage}" th:action="@{/home}" method="POST">
+    <label for="newMessageText">Submit a new Message:</label>
+    <input type="text" id="newMessageText" name="newMessageText" th:field="*{text}">
+    <input type="submit">
+</form>
+<h1 th:each="msg:${greetings}" th:text="${msg}" th:unless="${msg.contains('goodbye')}">Hello Homepage</h1>
+</body>
+</html>
