@@ -15,11 +15,15 @@ public class MaximumXOR {
         TrieNode3[] Trie;
         int cntNode;
         int data;
+        boolean isLeaf;
         public TrieNode3(){
             Trie=new TrieNode3[2];
             for(int i=0;i<2;i++){
                 Trie[i]=null;
             }
+            this.isLeaf=false;
+            this.data=0;
+
         }
     }
     public void InsertNode(TrieNode3 root,String bits,int val){
@@ -34,43 +38,47 @@ public class MaximumXOR {
                 temp.Trie[a].cntNode++;// if two node has common bits add cnt node=2
             }
             temp=temp.Trie[a];
-            if(i==bits.length()-1){
-                temp.data=val; // in the end  add data
-            }
         }
+        temp.isLeaf=true;
+        temp.data=val;
 
     }
-    public int getMaxXor(TrieNode3 root,String bit1,int  val){
+//    public  int getLeafNode(TrieNode3 root,int a){
+//
+//
+//    }
+    public int getMaxXor(TrieNode3 root,String bit2,int  val){
         int result=-1;
         TrieNode3 temp=root;
-        System.out.println(bit1+"--"+val);
-        for(int i=0;i<bit1.length();i++){
-            int a=bit1.charAt(i)-'0';
-            if(temp.Trie[a]!=null){
-                if(temp.Trie[a].cntNode==1){
-                    temp=temp.Trie[a];
-                    if(i==bit1.length()-1){
-                        result=temp.cntNode;
-                    }
-                }
-                else if(temp.Trie[a].cntNode>=2){
-                        char bit=' ';
-                       // a=bit1.charAt(i+1)-'0';
-                        if(bit1.charAt(i+1)=='0'){
-                           temp= temp.Trie[1];
-                           if(i==bit1.length()-1){
-                               result=temp.data;
-                           }
-                        }
-                        else{
-                            temp=temp.Trie[0];
-                            if(i==bit1.length()-1){
-                                result=temp.data;
-                            }
-                        }
-
-                }
-            }
+      //  System.out.println(bit1+"--"+val);
+        if(temp.Trie[bit2.charAt(0)-'0']==null){
+            return  result;
+        }
+        else{
+            temp=temp.Trie[bit2.charAt(0)-'0'];
+        }
+        int foundJoint=0;
+        for(int i=1;i<bit2.length();i++){
+            int a=bit2.charAt(i)-'0';
+            // check it has 1 both 0 then get which has xor 1
+             if(temp.Trie[1]!=null && temp.Trie[0]!=null){
+                 if(a==1){
+                     temp=temp.Trie[0];
+                 }
+                 else{
+                     temp=temp.Trie[1];
+                 }
+             }
+            else if(temp.Trie[1]!=null){
+                 temp=temp.Trie[1];
+             }
+             else if (temp.Trie[0]!=null) {
+                 temp = temp.Trie[0];
+             }
+        }
+        // end will result the data;
+        if(temp!=null && temp.isLeaf){
+            result=temp.data;
         }
         result=getXor(result,val);
         return  result;
@@ -106,31 +114,41 @@ public class MaximumXOR {
     }
 
     public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        System.out.print("Enter size of array:");
-        int n=sc.nextInt();
-        int[]arr=new int[n];
+//        Scanner sc=new Scanner(System.in);
+//       // System.out.print("Enter size of array:");
+//      //  int n=sc.nextInt();
+//        int[]arr=new int[n];
+//        int result=0;
+//        for(int i=0;i<n;i++){
+//            System.out.print("Enter input:");
+//            arr[i]=sc.nextInt();
+//        }
+//        // make trie node and get max xor
+//
+//        if(n==1){
+//            result=arr[0];
+//        }
+      //  arr[0]="00101";
+        int[]arr=new int[3];
         int result=0;
-        for(int i=0;i<n;i++){
-            System.out.print("Enter input:");
-            arr[i]=sc.nextInt();
-        }
-        // make trie node and get max xor
         MaximumXOR obj=new MaximumXOR();
         TrieNode3 root=new TrieNode3();
-        if(n==1){
-            result=arr[0];
-        }
-
-        for(int i=0;i<n;i++){
-            String bits=obj.convertToBits(arr[i]);
+        String []strArr=new String[3];
+        strArr[0]="00101";
+        strArr[1]="01010";
+        strArr[2]="011111";
+        arr[0]=5;
+        arr[1]=10;
+        arr[2]=15;
+        for(int i=0;i<3;i++){
+          //  String bits=obj.convertToBits(arr[i]);
             if(i==0){
-              obj.InsertNode(root,bits,arr[i]);
+              obj.InsertNode(root,strArr[i],arr[i]);
             }
             else{
-                result=Math.max(obj.getMaxXor(root,bits,arr[i]),result);
+                result=Math.max(obj.getMaxXor(root,strArr[i],arr[i]),result);
                 System.out.println(result);
-                obj.InsertNode(root,bits,arr[i]);
+                if(i!=2) obj.InsertNode(root,strArr[i],arr[i]);
             }
         }
     }
