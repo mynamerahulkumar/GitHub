@@ -15,17 +15,16 @@ public class ConnectRope {
         int result=0;
         while(true){
             if(heap.size()<=1){
-                if(heap.size()==0){
-                    result=0;
-                    break;
-                }
-                totalCost+=heap.get(0);
+//                if(heap.size()==0){
+//                    break;
+//                }
+//                totalCost+=heap.get(0);
                 break;
             }
             int min1=getMin();
             int min2=getMin();
             totalCost+=min1+min2;
-            System.out.println(min1+"-"+min2+"-"+totalCost);
+            System.out.println(min1+"+"+min2+"="+(min2+min1)+"->"+totalCost);
             insert(min1+min2);
         }
         return totalCost;
@@ -82,25 +81,35 @@ public class ConnectRope {
         int lc=0;
         int rc=0;
         while(true){
+            int fnd=0;
             if(2*i+1<n){
                 lc=2*i+1;
+                fnd=1;
             }
             else{
                 break;
             }
             if(2*i+2<n){
                 rc=2*i+2;
+                fnd=2;
             }
-            else{
+            else if(fnd==0){
                 break;
             }
-            if(heap.get(lc)<heap.get(rc)){
+            if(fnd==2 && heap.get(lc)<=heap.get(rc)){
+                swap(i,lc);
+                i=lc;
+            }
+            else if(fnd==2 && heap.get(lc)>heap.get(rc) ){
+                swap(i,rc);
+                i=rc;
+            }
+            else if(fnd==1 && heap.get(lc)<=heap.get(rc) ){
                 swap(i,lc);
                 i=lc;
             }
             else{
-                swap(i,rc);
-                i=rc;
+                i++;
             }
         }
         return min;
@@ -112,7 +121,7 @@ public class ConnectRope {
     }
 
     public static void main(String[] args) {
-        int[]A={1,2,3,4,5};
+        int[]A={5, 17, 100, 11};
         ConnectRope obj=new ConnectRope();
         System.out.println(obj.solve(A));
     }
