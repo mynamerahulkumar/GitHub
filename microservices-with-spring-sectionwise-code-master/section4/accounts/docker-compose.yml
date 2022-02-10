@@ -1,0 +1,30 @@
+version: "2.2.3"
+
+services:
+
+  accounts:
+    image: mynamerahulkumar/accounts:latest
+    mem_limit: 700m
+    ports:
+      - "8080:8080"
+    networks:
+      - eazybank-network
+
+  loans:
+    image: mynamerahulkumar/loans:latest
+    mem_limit: 700m
+    ports:
+      - "8090:8090"
+    networks:
+      - eazybank-network
+    
+  cards:
+    image: mynamerahulkumar/cards:latest
+    mem_limit: 700m
+    ports:
+      - "9090:9090"
+    networks:
+      - eazybank-network
+    
+networks:
+  eazybank-network:
