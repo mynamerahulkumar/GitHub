@@ -23,25 +23,25 @@ services:
       SPRING_PROFILES_ACTIVE: default
     #  SPRING_ZIPKIN_BASEURL: http://zipkin:9411/
       
-#  eurekaserver:
-#    image: eazybytes/eurekaserver:latest
-#    mem_limit: 700m
-#    ports:
-#      - "8070:8070"
-#    networks:
-#     - eazybank
-#    depends_on:
-#      - configserver
-#    deploy:
-#      restart_policy:
-#        condition: on-failure
-#        delay: 15s
-#        max_attempts: 3
-#        window: 120s
-#    environment:
-#      SPRING_PROFILES_ACTIVE: default
-#      SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
-#      SPRING_ZIPKIN_BASEURL: http://zipkin:9411/
+  eurekaserver:
+    image: eazybytes/eurekaserver:latest
+    mem_limit: 700m
+    ports:
+      - "8070:8070"
+    networks:
+     - eazybank
+    depends_on:
+      - configserver
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 15s
+        max_attempts: 3
+        window: 120s
+    environment:
+      SPRING_PROFILES_ACTIVE: default
+      SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
+     # SPRING_ZIPKIN_BASEURL: http://zipkin:9411/
 
   accounts:
     image: mynamerahulkumar/accounts:latest
@@ -52,7 +52,7 @@ services:
       - eazybank
     depends_on:
       - configserver
-     # - eurekaserver
+      - eurekaserver
     deploy:
       restart_policy:
         condition: on-failure
@@ -62,9 +62,29 @@ services:
     environment:
       SPRING_PROFILES_ACTIVE: default
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
-   #   EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
    #   SPRING_ZIPKIN_BASEURL: http://zipkin:9411/
-  
+  accounts1:
+    image: mynamerahulkumar/accounts:latest
+    mem_limit: 700m
+    ports:
+      - "8081:8080"
+    networks:
+      - eazybank
+    depends_on:
+      - configserver
+      - eurekaserver
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 30s
+        max_attempts: 3
+        window: 120s
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
+    #   SPRING_ZIPKIN_BASEURL: http://zipkin:9411/
   loans:
     image: mynamerahulkumar/loans:latest
     mem_limit: 700m
@@ -74,7 +94,7 @@ services:
       - eazybank
     depends_on:
       - configserver
-     # - eurekaserver
+      - eurekaserver
     deploy:
       restart_policy:
         condition: on-failure
@@ -84,7 +104,7 @@ services:
     environment:
       SPRING_PROFILES_ACTIVE: default
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
-#      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
 #      SPRING_ZIPKIN_BASEURL: http://zipkin:9411/
 #
   cards:
@@ -96,7 +116,7 @@ services:
       - eazybank
     depends_on:
       - configserver
-     # - eurekaserver
+      - eurekaserver
     deploy:
       restart_policy:
         condition: on-failure
@@ -106,7 +126,7 @@ services:
     environment:
       SPRING_PROFILES_ACTIVE: default
       SPRING_CONFIG_IMPORT: configserver:http://configserver:8071/
-#      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
 #      SPRING_ZIPKIN_BASEURL: http://zipkin:9411/
 #
 #  gatewayserver:
