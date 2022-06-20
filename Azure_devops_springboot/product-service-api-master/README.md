@@ -1,4 +1,4 @@
-Getting started:
+Getting started :
 1. Clone this repo
 2. Create your feature branch and start contributing
 3. Run mvn clean install
