@@ -3,9 +3,9 @@ package com.eats.restaurant.validator;
 import com.eats.restaurant.constants.GeoLocationConst;
 
 public class MenuInputValidator {
-    public void menuValidation(float latitude ,float longitude){
+    public void menuValidation(float latitude , float longitude){
         if(latitude< GeoLocationConst.LATITUDEMIN || latitude>GeoLocationConst.LATITUDEMAX){
-
+            return;// exception
         }
         else if(longitude<GeoLocationConst.LONGITUDEMIN || longitude>GeoLocationConst.LATITUDEMAX){
 
