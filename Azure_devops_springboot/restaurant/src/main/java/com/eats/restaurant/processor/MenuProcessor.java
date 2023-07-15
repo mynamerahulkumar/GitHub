@@ -4,7 +4,9 @@ import com.eats.restaurant.dto.Menus;
 import com.eats.restaurant.services.MenuServiceImplementation;
 import com.eats.restaurant.validator.MenuInputValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MenuProcessor {
     @Autowired
     private MenuServiceImplementation menuServiceImplementation;
