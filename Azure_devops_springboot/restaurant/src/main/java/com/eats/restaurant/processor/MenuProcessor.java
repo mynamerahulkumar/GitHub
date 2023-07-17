@@ -13,7 +13,7 @@ public class MenuProcessor {
     @Autowired
     private MenuInputValidator menuInputValidator;
 
-    private Menus processMenus(float latitude, float longitude){
+    public Menus processMenus(String latitude, String longitude,String userName,String email){
         menuInputValidator.menuValidation(latitude,longitude);
         Menus menus=menuServiceImplementation.getMenus(latitude,longitude);
         return menus;

@@ -5,12 +5,12 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class MenuInputValidator {
-    public void menuValidation(float latitude , float longitude){
-        if(latitude< GeoLocationConst.LATITUDEMIN || latitude>GeoLocationConst.LATITUDEMAX){
-            return;// exception
-        }
-        else if(longitude<GeoLocationConst.LONGITUDEMIN || longitude>GeoLocationConst.LATITUDEMAX){
-
-        }
+    public void menuValidation(String latitude , String longitude){
+//        if(latitude< GeoLocationConst.LATITUDEMIN || latitude>GeoLocationConst.LATITUDEMAX){
+//            return;// exception
+//        }
+//        else if(longitude<GeoLocationConst.LONGITUDEMIN || longitude>GeoLocationConst.LATITUDEMAX){
+//
+//        }
     }
 }
