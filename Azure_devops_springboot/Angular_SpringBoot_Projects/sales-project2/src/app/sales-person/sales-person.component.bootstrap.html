@@ -1,0 +1,28 @@
+<p>sales-person works!</p>
+
+<table class="table table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>Sales Volume</th>
+            <th>Met Target?</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let salesPerson of salesPersonList">
+            <td>{{salesPerson.firstName}}</td>
+            <td>{{salesPerson.lastName}}</td>
+            <td>{{salesPerson.email}}</td>
+            <td>{{salesPerson.salesVolume | currency:'USD'}}</td>
+            <td>
+                <div *ngIf="salesPerson.salesVolume>=500000; else othercondition"> YES </div>
+                <ng-template #othercondition>NO</ng-template>
+            </td>
+        </tr>
+    </tbody>
+
+
+</table>
