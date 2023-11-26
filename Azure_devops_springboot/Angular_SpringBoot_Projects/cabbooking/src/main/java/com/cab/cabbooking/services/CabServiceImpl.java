@@ -1,15 +1,14 @@
 package com.cab.cabbooking.services;
 
 import com.cab.cabbooking.constants.CabBookingConstants;
-import com.cab.cabbooking.dtos.Cab;
-import com.cab.cabbooking.dtos.CurrentUserSession;
+import com.cab.cabbooking.entity.Cab;
+import com.cab.cabbooking.entity.CurrentUserSession;
 import com.cab.cabbooking.exception.CabException;
 import com.cab.cabbooking.repository.CabRepo;
 import com.cab.cabbooking.repository.CurrentUserSessionRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import java.util.Optional;
 
 @Service

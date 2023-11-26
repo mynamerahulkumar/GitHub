@@ -1,6 +1,6 @@
 package com.cab.cabbooking.controller;
 
-import com.cab.cabbooking.dtos.Customer;
+import com.cab.cabbooking.entity.Customer;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

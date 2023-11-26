@@ -1,9 +1,8 @@
 package com.cab.cabbooking.services;
 
 import com.cab.cabbooking.constants.CabBookingConstants;
-import com.cab.cabbooking.dtos.Cab;
-import com.cab.cabbooking.dtos.CurrentUserSession;
-import com.cab.cabbooking.dtos.Driver;
+import com.cab.cabbooking.entity.CurrentUserSession;
+import com.cab.cabbooking.entity.Driver;
 import com.cab.cabbooking.exception.CabException;
 import com.cab.cabbooking.repository.CurrentUserSessionRepo;
 import com.cab.cabbooking.repository.CustomerRepo;
@@ -54,7 +53,7 @@ public class DriverServiceImpl  implements  DriverService{
     @Override
     public Driver updateDriver(Driver driver, String uuid) throws CabException {
 
-        Optional<CurrentUserSession> validCustomer = currentUserSessionRepo.findByUUid(uuid);
+        Optional<CurrentUserSession> validCustomer = currentUserSessionRepo.findByuuid(uuid);
         if(validCustomer.isPresent()) {
             Optional<Driver> drv = driverRepo.findByEmail(driver.getEmail());
             if(drv.isPresent()) {
@@ -87,7 +86,7 @@ public class DriverServiceImpl  implements  DriverService{
     @Override
     public Driver deleteDriver(Integer driverId, String uuid) throws CabException {
 
-        Optional<CurrentUserSession> validCustomer = currentUserSessionRepo.findByUUid(uuid);
+        Optional<CurrentUserSession> validCustomer = currentUserSessionRepo.findByuuid(uuid);
         if(validCustomer.isPresent()) {
             Optional<Driver> drv = driverRepo.findById(driverId);
             if(drv.isPresent()) {

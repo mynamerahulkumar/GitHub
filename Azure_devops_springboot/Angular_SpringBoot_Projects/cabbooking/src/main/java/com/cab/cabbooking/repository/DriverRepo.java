@@ -1,6 +1,6 @@
 package com.cab.cabbooking.repository;
 
-import com.cab.cabbooking.dtos.Driver;
+import com.cab.cabbooking.entity.Driver;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

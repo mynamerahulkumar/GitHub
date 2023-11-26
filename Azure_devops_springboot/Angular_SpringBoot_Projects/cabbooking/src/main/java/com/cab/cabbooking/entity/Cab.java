@@ -1,5 +1,6 @@
-package com.cab.cabbooking.dtos;
+package com.cab.cabbooking.entity;
 
+import com.cab.cabbooking.entity.Driver;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;

@@ -1,7 +1,6 @@
 package com.cab.cabbooking.services;
 
-import com.cab.cabbooking.dtos.Customer;
-import com.sun.source.doctree.IndexTree;
+import com.cab.cabbooking.entity.Customer;
 
 import java.util.List;
 

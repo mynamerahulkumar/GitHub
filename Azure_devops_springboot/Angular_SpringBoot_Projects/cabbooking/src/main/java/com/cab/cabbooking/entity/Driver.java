@@ -1,18 +1,18 @@
-package com.cab.cabbooking.dtos;
+package com.cab.cabbooking.entity;
 
+import com.cab.cabbooking.dtos.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
 @Data
-@Entity
+@Entity(name = "driver")
 public class Driver extends User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer driverId;
 
     private String licenseNo;

@@ -1,6 +1,6 @@
 package com.cab.cabbooking.services;
 
-import com.cab.cabbooking.dtos.Driver;
+import com.cab.cabbooking.entity.Driver;
 
 public interface DriverService {
 

@@ -1,5 +1,6 @@
-package com.cab.cabbooking.dtos;
+package com.cab.cabbooking.entity;
 
+import com.cab.cabbooking.dtos.User;
 import jakarta.persistence.*;
 import lombok.Data;
 

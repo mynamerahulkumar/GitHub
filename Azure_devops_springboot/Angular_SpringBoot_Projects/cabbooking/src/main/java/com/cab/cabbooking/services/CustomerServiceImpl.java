@@ -1,8 +1,8 @@
 package com.cab.cabbooking.services;
 
 import com.cab.cabbooking.constants.CabBookingConstants;
-import com.cab.cabbooking.dtos.CurrentUserSession;
-import com.cab.cabbooking.dtos.Customer;
+import com.cab.cabbooking.entity.CurrentUserSession;
+import com.cab.cabbooking.entity.Customer;
 import com.cab.cabbooking.exception.CabException;
 import com.cab.cabbooking.repository.CurrentUserSessionRepo;
 import com.cab.cabbooking.repository.CustomerRepo;
@@ -22,7 +22,7 @@ public class CustomerServiceImpl  implements CustomerService{
     private CurrentUserSessionRepo currRepo;
 
     public Customer insertCustomer(Customer customer){
-        Optional<Customer> cust=customerRepo.findByEmail(customer.getEmail());
+        Optional<Customer> cust=customerRepo.findByemail(customer.getEmail());
         if(cust.isPresent()){
             throw  new CabException.Builder()
                     .status(CabBookingConstants.BAD_REQUEST)
@@ -44,9 +44,9 @@ public class CustomerServiceImpl  implements CustomerService{
 
     @Override
     public Customer updateCustomer(Customer customer, String uuid) {
-        Optional<CurrentUserSession> validCustomer=currRepo.findByUUid(uuid);
+        Optional<CurrentUserSession> validCustomer=currRepo.findByuuid(uuid);
         if(validCustomer.isPresent()){
-            Optional<Customer> cust=customerRepo.findByEmail(customer.getEmail());
+            Optional<Customer> cust=customerRepo.findByemail(customer.getEmail());
             if(cust.isPresent()){
                 Customer updatingCustomer=cust.get();
                 updatingCustomer.setAddress(customer.getAddress());
