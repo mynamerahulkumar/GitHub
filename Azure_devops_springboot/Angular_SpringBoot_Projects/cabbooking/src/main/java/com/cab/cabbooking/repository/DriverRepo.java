@@ -10,9 +10,9 @@ import java.util.Optional;
 @Repository
 public interface DriverRepo  extends JpaRepository<Driver,Integer> {
 
-    Optional<Driver> findByLicenseNo(String licenseNo);
+    Driver findByLicenseNo(String licenseNo);
 
-    Optional<Driver> findByEmail(String email);
+    Driver findByEmail(String email);
 
     List<Driver> findByCurrLocationAndCurrDriverStatus(String currLocation,String currDriverStatus);
 

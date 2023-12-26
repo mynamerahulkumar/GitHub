@@ -1,14 +1,22 @@
 package com.cab.cabbooking.services;
 
 import com.cab.cabbooking.constants.CabBookingConstants;
+import com.cab.cabbooking.dtos.CabOutPutDTO;
+import com.cab.cabbooking.dtos.CustomerOutPutDTO;
 import com.cab.cabbooking.entity.Cab;
 import com.cab.cabbooking.entity.CurrentUserSession;
+import com.cab.cabbooking.entity.Customer;
 import com.cab.cabbooking.exception.CabException;
+import com.cab.cabbooking.mapper.CabMapper;
+import com.cab.cabbooking.mapper.CustomerMapper;
+import com.cab.cabbooking.processor.CabProcessor;
+import com.cab.cabbooking.processor.CustomerProcessor;
 import com.cab.cabbooking.repository.CabRepo;
 import com.cab.cabbooking.repository.CurrentUserSessionRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -16,75 +24,33 @@ public class CabServiceImpl implements CabService {
 
 
     @Autowired
-    private CabRepo cabRepo;
+    private CabProcessor cabProcessor;
 
     @Autowired
-    private CurrentUserSessionRepo currRepo;
-    @Override
-    public Cab insertCab(Cab cab) throws CabException {
-        Optional<Cab> findCab=cabRepo.findByCarNumber(cab.getCarNumber());
-        if(findCab.isEmpty()){
-            return cabRepo.save(cab);
-        }
-        else{
-            throw  new CabException.Builder()
-                    .status(CabBookingConstants.BAD_REQUEST)
-                    .errorCode(CabBookingConstants.CAB_REGISTERED_CODE)
-                    .errorMessage(CabBookingConstants.CAB_REGISTERED).build();
-        }
+    private CabMapper cabMapper;
+
+    public CabOutPutDTO insertCab(Cab cab) {
+        int num=2/0;
+        Cab resCab = cabProcessor.insertCabProcess(cab);
+        CabOutPutDTO cabOutPutDTO = cabMapper.updateResponseInsert(resCab);
+        return cabOutPutDTO;
+
     }
 
     @Override
-    public Cab updateCab(Cab cab, String uuid) throws CabException {
-        Optional<CurrentUserSession> validUser=currRepo.findByUuidAndRole(uuid);
-        if(validUser.isPresent()){
-            Optional<Cab> cb=cabRepo.findByCarNumber(cab.getCarNumber());
-            if(cb.isPresent()){
-                Cab data=cb.get();
-                data.setCarName(cab.getCarName());
-                data.setCarType(cab.getCarType());
-                data.setPerKmRate(cab.getPerKmRate());
-                return cabRepo.save(data);
-            }
-            else{
-                throw  new CabException.Builder()
-                        .status(CabBookingConstants.BAD_REQUEST)
-                        .errorCode(CabBookingConstants.CAB_NOT_REGISTERED_CODE)
-                        .errorMessage(CabBookingConstants.CAB_NOT_REGISTERED).build();
-            }
-        }
-        else{
+    public CabOutPutDTO updateCab(Cab cab, String uuid) {
+        Cab resCab = cabProcessor.updateCabProcess(cab,uuid);
+        CabOutPutDTO cabOutPutDTO = cabMapper.updateResponseUpdate(resCab);
+        return cabOutPutDTO;
 
-                throw  new CabException.Builder()
-                        .status(CabBookingConstants.BAD_REQUEST)
-                        .errorCode(CabBookingConstants.USER_NOT_LOGIN)
-                        .errorMessage(CabBookingConstants.USER_NOT_LOGIN_CODE).build();
 
-        }
     }
 
     @Override
-    public Cab deleteCab(Integer cabId, String uuid) {
-        Optional<CurrentUserSession> validUser=currRepo.findByUuidAndRole(uuid);
-        if(validUser.isPresent()){
-            Optional<Cab> cb=cabRepo.findById(cabId);
-            if(cb.isPresent()){
-                Cab cab=cb.get();
-                cabRepo.delete(cab);
-                return cab;
-            }
-            else{
-                throw  new CabException.Builder()
-                        .status(CabBookingConstants.BAD_REQUEST)
-                        .errorCode(CabBookingConstants.CAB_NOT_REGISTERED_CODE)
-                        .errorMessage(CabBookingConstants.CAB_NOT_REGISTERED).build();
-            }
-        }
-        else{
-            throw  new CabException.Builder()
-                    .status(CabBookingConstants.BAD_REQUEST)
-                    .errorCode(CabBookingConstants.USER_NOT_LOGIN)
-                    .errorMessage(CabBookingConstants.USER_NOT_LOGIN_CODE).build();
-        }
+    public CabOutPutDTO deleteCab(Integer cabId,String uuid) {
+        Cab resCab = cabProcessor.deleteCabProcess(cabId,uuid);
+        CabOutPutDTO cabOutPutDTO = cabMapper.updateResponseDelete(resCab);
+        return cabOutPutDTO;
     }
+
 }

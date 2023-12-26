@@ -1,50 +1,91 @@
 package com.cab.cabbooking.services;
 
+import com.cab.cabbooking.dtos.CabOutPutDTO;
 import com.cab.cabbooking.entity.Cab;
-import com.cab.cabbooking.entity.Driver;
-import com.cab.cabbooking.exception.CabException;
-import com.cab.cabbooking.repository.CabRepo;
-import com.cab.cabbooking.repository.CurrentUserSessionRepo;
-import org.junit.jupiter.api.Assertions;
+import com.cab.cabbooking.mapper.CabMapper;
+import com.cab.cabbooking.processor.CabProcessor;
+import com.cab.cabbooking.services.CabServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.MockitoAnnotations;
 
-@ExtendWith(MockitoExtension.class)
-public class CabServiceImplTest {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
+
+class CabServiceImplTest {
 
     @Mock
-    private CabRepo cabRepo;
+    private CabProcessor cabProcessor;
 
     @Mock
-    private CurrentUserSessionRepo currRepo;
+    private CabMapper cabMapper;
 
     @InjectMocks
     private CabServiceImpl cabService;
-    Cab cab;
-
-    Driver driver;
 
     @BeforeEach
-    public void init() {
-        cab = new Cab();
-        driver = new Driver();
-        cab.setPerKmRate(10);
-        cab.setCabId(234234);
-        cab.setCarType("SUDAN");
-        cab.setCarName("BMW");
-        cab.setCabCurrStatus("PRESENT");
-        cab.setDriver(driver);
+    void setUp() {
+        MockitoAnnotations.initMocks(this);
     }
 
+    @Test
+    void testInsertCab() {
+        // Arrange
+        Cab cab = new Cab();
+        Cab resCab = new Cab();
+        CabOutPutDTO expectedOutputDTO = new CabOutPutDTO();
+
+        when(cabProcessor.insertCabProcess(cab)).thenReturn(resCab);
+        when(cabMapper.updateResponseInsert(resCab)).thenReturn(expectedOutputDTO);
+
+        // Act
+        CabOutPutDTO actualOutputDTO = cabService.insertCab(cab);
+
+        // Assert
+        assertEquals(expectedOutputDTO, actualOutputDTO);
+        verify(cabProcessor, times(1)).insertCabProcess(cab);
+        verify(cabMapper, times(1)).updateResponseInsert(resCab);
+    }
 
     @Test
-    public void insertCab() throws CabException {
-        Cab response = cabService.insertCab(cab);
-        Assertions.assertNotNull(response);
+    void testUpdateCab() {
+        // Arrange
+        Cab cab = new Cab();
+        String uuid = "123";
+        Cab resCab = new Cab();
+        CabOutPutDTO expectedOutputDTO = new CabOutPutDTO();
 
+        when(cabProcessor.updateCabProcess(cab, uuid)).thenReturn(resCab);
+        when(cabMapper.updateResponseUpdate(resCab)).thenReturn(expectedOutputDTO);
+
+        // Act
+        CabOutPutDTO actualOutputDTO = cabService.updateCab(cab, uuid);
+
+        // Assert
+        assertEquals(expectedOutputDTO, actualOutputDTO);
+        verify(cabProcessor, times(1)).updateCabProcess(cab, uuid);
+        verify(cabMapper, times(1)).updateResponseUpdate(resCab);
+    }
+
+    @Test
+    void testDeleteCab() {
+        // Arrange
+        Integer cabId = 1;
+        String uuid = "123";
+        Cab resCab = new Cab();
+        CabOutPutDTO expectedOutputDTO = new CabOutPutDTO();
+
+        when(cabProcessor.deleteCabProcess(cabId, uuid)).thenReturn(resCab);
+        when(cabMapper.updateResponseDelete(resCab)).thenReturn(expectedOutputDTO);
+
+        // Act
+        CabOutPutDTO actualOutputDTO = cabService.deleteCab(cabId, uuid);
+
+        // Assert
+        assertEquals(expectedOutputDTO, actualOutputDTO);
+        verify(cabProcessor, times(1)).deleteCabProcess(cabId, uuid);
+        verify(cabMapper, times(1)).updateResponseDelete(resCab);
     }
 }

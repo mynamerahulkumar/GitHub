@@ -1,11 +1,12 @@
 package com.cab.cabbooking.services;
 
+import com.cab.cabbooking.dtos.CabOutPutDTO;
 import com.cab.cabbooking.entity.Cab;
 
 public interface CabService {
-    Cab insertCab(Cab cab);
+    CabOutPutDTO insertCab(Cab cab);
 
-    Cab updateCab(Cab cab,String uuid);
+    CabOutPutDTO updateCab(Cab cab,String uuid);
 
-    Cab deleteCab(Integer cabId,String uuid);
+    CabOutPutDTO deleteCab(Integer cabId,String uuid);
 }

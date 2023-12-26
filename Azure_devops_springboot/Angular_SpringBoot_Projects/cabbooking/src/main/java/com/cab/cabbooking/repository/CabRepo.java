@@ -4,11 +4,12 @@ import com.cab.cabbooking.entity.Cab;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
 public interface CabRepo extends JpaRepository<Cab,Integer> {
 
 
-    Optional<Cab> findByCarNumber(String carNumber);
+    Cab findByCarNumber(String carNumber);
 }

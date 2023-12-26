@@ -1,9 +1,16 @@
 package com.cab.cabbooking.services;
 
 import com.cab.cabbooking.constants.CabBookingConstants;
+import com.cab.cabbooking.dtos.CabOutPutDTO;
+import com.cab.cabbooking.dtos.DriverOutPutDTO;
+import com.cab.cabbooking.entity.Cab;
 import com.cab.cabbooking.entity.CurrentUserSession;
 import com.cab.cabbooking.entity.Driver;
 import com.cab.cabbooking.exception.CabException;
+import com.cab.cabbooking.mapper.CabMapper;
+import com.cab.cabbooking.mapper.DriverMapper;
+import com.cab.cabbooking.processor.CabProcessor;
+import com.cab.cabbooking.processor.DriverProcessor;
 import com.cab.cabbooking.repository.CurrentUserSessionRepo;
 import com.cab.cabbooking.repository.CustomerRepo;
 import com.cab.cabbooking.repository.DriverRepo;
@@ -17,96 +24,32 @@ import java.util.Optional;
 public class DriverServiceImpl  implements  DriverService{
 
     @Autowired
-    private DriverRepo driverRepo;
-    @Autowired
-    private CustomerRepo customerRepo;
-    @Autowired
-    private TripBookingRepo tripBookingRepo;
-    @Autowired
-    private CurrentUserSessionRepo currentUserSessionRepo;
+    private DriverProcessor driverProcessor;
 
-
-
+    @Autowired
+    private DriverMapper driverMapper;
     @Override
-    public Driver insertDriver(Driver driver) throws CabException {
+    public DriverOutPutDTO insertDriver(Driver driver) {
 
-        Optional<Driver> findDriver = driverRepo.findByLicenseNo(driver.getLicenseNo());
-        if(findDriver.isPresent()) {
-            throw  new CabException.Builder()
-                    .status(CabBookingConstants.BAD_REQUEST)
-                    .errorCode(CabBookingConstants.DRIVER_REGISTERED_CODE)
-                    .errorMessage(CabBookingConstants.DRIVER_REGISTERED).build();
-        }
-        else {
-            if(driver.getUserRole().equalsIgnoreCase("Driver")) {
-                return driverRepo.save(driver);
-            }
-            else {
-                throw  new CabException.Builder()
-                        .status(CabBookingConstants.BAD_REQUEST)
-                        .errorCode(CabBookingConstants.USER_NOT_DRIVER_CODE)
-                        .errorMessage(CabBookingConstants.USER_NOT_DRIVER).build();
-            }
-        }
+        Driver resDriver = driverProcessor.insertDriverProcess(driver);
+        DriverOutPutDTO driverOutPutDTO = driverMapper.updateResponseInsert(resDriver);
+        return driverOutPutDTO;
+
     }
 
     @Override
-    public Driver updateDriver(Driver driver, String uuid) throws CabException {
+    public DriverOutPutDTO updateDriver(Driver driver, String uuid) {
+        Driver resDriver = driverProcessor.updateDriverProcess(driver,uuid);
+        DriverOutPutDTO driverOutPutDTO = driverMapper.updateResponseUpdate(resDriver);
+        return driverOutPutDTO;
 
-        Optional<CurrentUserSession> validCustomer = currentUserSessionRepo.findByuuid(uuid);
-        if(validCustomer.isPresent()) {
-            Optional<Driver> drv = driverRepo.findByEmail(driver.getEmail());
-            if(drv.isPresent()) {
-                Driver updatingdriver = drv.get();
-                updatingdriver.setAddress(driver.getAddress());
-                updatingdriver.setEmail(driver.getEmail());
-                updatingdriver.setMobileNumber(driver.getMobileNumber());
-                updatingdriver.setPassword(driver.getPassword());
-                updatingdriver.setUserName(driver.getUserName());
-                updatingdriver.setLicenseNo(driver.getLicenseNo());
-                updatingdriver.setCab(driver.getCab());
-
-                return driverRepo.save(updatingdriver);
-            }
-            else {
-                throw  new CabException.Builder()
-                        .status(CabBookingConstants.BAD_REQUEST)
-                        .errorCode(CabBookingConstants.DRIVER_NOT_FOUND_CREDENTIAL_CODE)
-                        .errorMessage(CabBookingConstants.DRIVER_NOT_FOUND_CREDENTIAL).build();
-            }
-        }
-        else {
-            throw  new CabException.Builder()
-                    .status(CabBookingConstants.BAD_REQUEST)
-                    .errorCode(CabBookingConstants.USER_NOT_LOGIN_CODE)
-                    .errorMessage(CabBookingConstants.USER_NOT_LOGIN).build();
-        }
     }
 
     @Override
-    public Driver deleteDriver(Integer driverId, String uuid) throws CabException {
-
-        Optional<CurrentUserSession> validCustomer = currentUserSessionRepo.findByuuid(uuid);
-        if(validCustomer.isPresent()) {
-            Optional<Driver> drv = driverRepo.findById(driverId);
-            if(drv.isPresent()) {
-                Driver updatingdriver = drv.get();
-                driverRepo.delete(updatingdriver);
-                return updatingdriver;
-            }
-            else {
-                throw  new CabException.Builder()
-                        .status(CabBookingConstants.BAD_REQUEST)
-                        .errorCode(CabBookingConstants.DRIVER_NOT_FOUND_CREDENTIAL_CODE)
-                        .errorMessage(CabBookingConstants.DRIVER_NOT_FOUND_CREDENTIAL).build();
-            }
-        }
-        else {
-            throw  new CabException.Builder()
-                    .status(CabBookingConstants.BAD_REQUEST)
-                    .errorCode(CabBookingConstants.USER_NOT_LOGIN_CODE)
-                    .errorMessage(CabBookingConstants.USER_NOT_LOGIN).build();
-        }
+    public DriverOutPutDTO deleteDriver(Integer driverId,String uuid) {
+        Driver resDriver = driverProcessor.deleteDriverProcess(driverId,uuid);
+        DriverOutPutDTO driverOutPutDTO = driverMapper.updateResponseDelete(resDriver);
+        return driverOutPutDTO;
     }
 
 }

@@ -47,5 +47,18 @@ public class CabBookingConstants {
     public static final String DRIVER_NOT_FOUND_CREDENTIAL="Driver not found with this Credentials";
 
     public static final String DRIVER_NOT_FOUND_CREDENTIAL_CODE="DRIVER_NOT_FOUND_CREDENTIAL";
+    public static final String SUCCESS_MESSAGE="SUCCESS";
+    public static final String CAB_ADDED="Cab Added successfully";
+    public static final String CAB_UPDATED="Cab Added successfully";
+    public static final String CAB_DELETED="Cab Deleted successfully";
+
+    public static final String DRIVER_ADDED="Driver Added successfully";
+    public static final String DRIVER_UPDATED="Driver Updated successfully";
+    public static final String DRIVER_DELETED="Driver Deleted successfully";
+
+    public static final String CUSTOMER_ADDED="Customer Added successfully";
+    public static final String CUSTOMER_UPDATED="Customer Updated successfully";
+    public static final String CUSTOMER_DELETED="Customer Deleted successfully";
+
 
 }

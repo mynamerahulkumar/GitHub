@@ -6,14 +6,15 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
 public interface CurrentUserSessionRepo extends JpaRepository<CurrentUserSession,Integer> {
 
 
-    Optional<CurrentUserSession> findByuuid(String uuid);
+    List<CurrentUserSession> findByuuid(String uuid);
 
     @Query("SELECT c FROM CurrentUserSession c WHERE c.uuid = :uuid AND c.currRole = 'admin'")
-    Optional<CurrentUserSession> findByUuidAndRole(@Param("uuid") String uuid);
+    List<CurrentUserSession> findByUuidAndRole(@Param("uuid") String uuid);
 }
