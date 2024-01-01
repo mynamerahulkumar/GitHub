@@ -1,0 +1,30 @@
+{
+  "name": "react-dhara",
+  "version": "1.0.0",
+  "description": "react Dhara",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mynamerahulkumar/GitHub.git"
+  },
+  "keywords": [
+    "react",
+    "Rahul"
+  ],
+  "author": "Rahul",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mynamerahulkumar/GitHub/issues"
+  },
+  "homepage": "https://github.com/mynamerahulkumar/GitHub#readme",
+  "devDependencies": {
+    "parcel": "^2.10.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
