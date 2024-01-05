@@ -40,4 +40,25 @@
  .res-logo{
     width: 100%;
  }
-     
+ filter-btn{
+   margin: 5px;
+   cursor: pointer;
+ }
+
+ .shimmer-cards{
+   width: 20px;
+   margin: 20px;
+   height: 400px;
+   background-color: gray;
+ }
+ .shimmer-container{
+   display: flex;
+   flex-wrap: wrap;
+ }
+ .login{
+   height: 50px;
+   width: 100px;
+ }
+ /* .search-box{
+   flex-wrap: wrap;
+ } */
