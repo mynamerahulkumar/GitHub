@@ -4,22 +4,9 @@ import ReactDOM from "react-dom/client";
 
 import Body from "./components/body";
 import Header from "./components/Header";
-/*** 
- * Header
- * - Logo
- * -Nav Items (Home ,about us)
- * Body
- * -Search component
- * -Restaurant container
- *    -Restaurant card 
- *      -image,name of res,star rating ,cuisines,deliver times
- * Footer
- *  - Copuright
- *   -Links
- *   -Address
- *    -Contact
- */
-
+import {createBrowserRouter,RouterProvider} from 'react-router-dom'
+import About from "./components/About";
+import Contact from "./components/Contact";
 
 
 
@@ -36,6 +23,21 @@ const AppLayout=()=>{
     )
 }
 
+const appRouter=createBrowserRouter([
+    {
+        path:"/",
+        element:<AppLayout/>
+    },
+    {
+        path:"/about",
+        element:<About/>
+
+    },
+    {
+        path:"/contact",
+        element:<Contact/>
+    }
+])
 const root=ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(<AppLayout/>);
+root.render(<RouterProvider router={appRouter}/>);
