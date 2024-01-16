@@ -62,3 +62,8 @@
  /* .search-box{
    flex-wrap: wrap;
  } */
+
+ .user-card{
+   padding: 10px;
+   border: 10px;
+ }
