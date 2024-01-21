@@ -39,15 +39,16 @@ const Body=()=>{
     //Normal JS variable let listofrestaurant=[];
     return(
         <div className="body">
-            <div className="filter"> 
-            <div className="search">
-                <input type="text" className="search-box"
+         <div className="filter flex"> 
+            <div className="search m-4 p-4">
+                <input type="text" className="border border-solid border-black"
                 value={searchText} 
                 onChange={(e)=>{
                     setSearchText(e.target.value);
                 }}
                 ></input>
-                <button 
+            
+                <button className="p-4 py-2 bg-green-100 m-4 rounded-lg"
                 onClick={async ()=>{
                    await fetchData();
                   const filterrestaurant=  listOfrestListRestaurant.filter((res)=>
@@ -56,11 +57,9 @@ const Body=()=>{
                         console.log(searchText);
                 }}
                 >Search</button>
-                   
-                
-               
-            </div>
-            <button className="filter-btn" onClick={()=>{
+             </div>
+            <div className="search m-4 p-4 flex items-center">
+            <button className="filter-btn px-4 py-2 bg-gray-100 rounded-lg" onClick={()=>{
                const restListFilter=listOfrestListRestaurant.filter(
                 (res)=>res.avgRating>4.5
                 );
@@ -71,7 +70,9 @@ const Body=()=>{
                         Top Rated Button
             </button>
             </div>
-            <div className="res-container">
+          
+          </div>
+            <div className="flex flex-wrap rounded-lg">
                {
                 filteredListRestaurant?.map((restaurant,index)=>
                 <Link to={"/restaurant/"+restaurant.id} key={restaurant.id}>
