@@ -9,4 +9,5 @@ public class ItemDTO {
     public String name;
     public float price;
     public int id;
+    public String category;
 }

@@ -2,6 +2,7 @@ package com.restaurant.restaurantmenu.controller;
 
 import com.restaurant.restaurantmenu.dtos.FoodDTO;
 import com.restaurant.restaurantmenu.dtos.MenuDTO;
+import com.restaurant.restaurantmenu.dtos.RestAllCategoryDTO;
 import com.restaurant.restaurantmenu.services.FoodMenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,8 +26,8 @@ public class MenuController {
 
     @GetMapping("/item/v1")
     public ResponseEntity<?> getRestaurantMenuItem(@RequestParam int restId){
-        MenuDTO menuDTO =foodMenuService.getOneMenu(restId);
-        return  new ResponseEntity<>(menuDTO, HttpStatus.OK);
+        RestAllCategoryDTO restAllCategoryDTO =foodMenuService.getOneMenuList(restId);
+        return  new ResponseEntity<>(restAllCategoryDTO, HttpStatus.OK);
     }
 
 

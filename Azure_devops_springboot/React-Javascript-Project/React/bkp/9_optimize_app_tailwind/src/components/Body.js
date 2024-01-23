@@ -1,4 +1,4 @@
-import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
+import RestaurantCard from "./RestaurantCard";
 import { restList } from "../utils/data";
 import { Shimmer } from "./Shimmer";
 import { useState,useEffect } from "react";
@@ -10,9 +10,6 @@ const Body=()=>{
     const[filteredListRestaurant,setFilteredList]=useState([]);
     
     const[searchText,setSearchText]=useState("");
-
-    const RestaurantCardPromoted=withPromotedLabel(RestaurantCard); // it has return method return()
-
     useEffect(()=>{
         fetchData();
 
@@ -79,13 +76,8 @@ const Body=()=>{
                {
                 filteredListRestaurant?.map((restaurant,index)=>
                 <Link to={"/restaurant/"+restaurant.id} key={restaurant.id}>
-               {/* if the restuant card promoted show promoted label        */}
-               {restaurant.promoted?(
-                <RestaurantCardPromoted restData={restaurant} indexData={restaurant.id}/> 
-               ):(
-                <RestaurantCard  restData={restaurant} indexData={restaurant.id} />
-               )}
                 
+                <RestaurantCard  restData={restaurant} indexData={restaurant.id} />
                 </Link>
                 )}      
             </div>

@@ -3,7 +3,6 @@ import RestaurantCard from "./RestaurantCard"
 import { Shimmer } from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
-import RestauarantCategory from "./RestauarantCategory";
 
 const RestaurantMenu=()=>{
     const{restId}=useParams();
@@ -13,28 +12,20 @@ const RestaurantMenu=()=>{
     if(restItem==null){
         return <Shimmer/>
     }
-    console.log(restItem);
-    const{name,cuisines,costFortTwoMessage,menuDTOList}=restItem;
-    const categories=menuDTOList.filter(
-        (c)=>c.category="Main_Course"
-    )
+    const{name,cuisines,costFortTwoMessage,itemDTO}=restItem;
+    
 
     return(
         <div className="menu">
-        <h1 className="font-bold my-10 text-2xl">{name}</h1>
-        <h2 className="font-bold my-10 text-1xl">{cuisines.join(", ")} ={costFortTwoMessage}</h2>
+        <h1>{name}</h1>
+        <h2>{cuisines.join(", ")} ={costFortTwoMessage}</h2>
         <h2>Menu</h2>
-        {
-            categories.map((category) => (
-                <RestauarantCategory key={category.id}/>
-            ))
-        }
-
-        {/* {itemDTO.map((item,index)=>(
+        <ul>
+        {itemDTO.map((item,index)=>(
             <li key={index}> {item.name}- {item.price}</li>
-        ))} */}
+        ))}
          
-       
+        </ul>
 
         </div>
     )

@@ -21,4 +21,6 @@ public class FoodDTO {
 
     public String imageId;
 
+    public boolean promoted;
+
 }

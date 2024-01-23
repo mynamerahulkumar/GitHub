@@ -22,6 +22,7 @@ public class MockMenuData {
         foodDTO.setDeliveryTime(30);
         foodDTO.setImageId("f1.jpg");
         foodDTO.setCostForTwo(50000);
+        foodDTO.setPromoted(true);
 
         FoodDTO foodDTO1=new FoodDTO();
         foodDTO1.setName("South Indian Thali");
@@ -31,6 +32,7 @@ public class MockMenuData {
         foodDTO1.setDeliveryTime(30);
         foodDTO1.setImageId("f2.jpg");
         foodDTO1.setCostForTwo(40000);
+        foodDTO1.setPromoted(false);
 
         FoodDTO foodDTO2=new FoodDTO();
         foodDTO2.setName("Kachodi");
@@ -40,6 +42,7 @@ public class MockMenuData {
         foodDTO2.setDeliveryTime(30);
         foodDTO2.setImageId("f3.jpg");
         foodDTO2.setCostForTwo(40000);
+        foodDTO2.setPromoted(true);
 
         FoodDTO foodDTO4=new FoodDTO();
         foodDTO4.setName("Idli");
@@ -49,6 +52,7 @@ public class MockMenuData {
         foodDTO4.setDeliveryTime(30);
         foodDTO4.setImageId("f4.webp");
         foodDTO4.setCostForTwo(40000);
+        foodDTO4.setPromoted(false);
 
         FoodDTO foodDTO5=new FoodDTO();
         foodDTO5.setName("Biryani Thali");
@@ -58,6 +62,7 @@ public class MockMenuData {
         foodDTO5.setDeliveryTime(30);
         foodDTO5.setImageId("f5.jpg");
         foodDTO5.setCostForTwo(40000);
+        foodDTO5.setPromoted(false);
 
         FoodDTO foodDTO6=new FoodDTO();
         foodDTO6.setName("Curd Chart");
@@ -67,6 +72,7 @@ public class MockMenuData {
         foodDTO6.setDeliveryTime(30);
         foodDTO6.setImageId("f6.jpg");
         foodDTO6.setCostForTwo(40000);
+        foodDTO6.setPromoted(false);
 
         FoodDTO foodDTO7=new FoodDTO();
         foodDTO7.setName("North Indian Roti Thali");
@@ -76,6 +82,7 @@ public class MockMenuData {
         foodDTO7.setDeliveryTime(30);
         foodDTO7.setImageId("f7.jpg");
         foodDTO7.setCostForTwo(40000);
+        foodDTO7.setPromoted(false);
 
         FoodDTO foodDTO8=new FoodDTO();
         foodDTO8.setName("North Indian Thali");
@@ -85,6 +92,7 @@ public class MockMenuData {
         foodDTO8.setDeliveryTime(30);
         foodDTO8.setImageId("f8.jpg");
         foodDTO8.setCostForTwo(40000);
+        foodDTO8.setPromoted(false);
 
         FoodDTO foodDTO9=new FoodDTO();
         foodDTO9.setName("South Indian Big Thali");
@@ -94,6 +102,7 @@ public class MockMenuData {
         foodDTO9.setDeliveryTime(30);
         foodDTO9.setImageId("f9.jpg");
         foodDTO9.setCostForTwo(40000);
+        foodDTO9.setPromoted(false);
 
         FoodDTO foodDT10=new FoodDTO();
         foodDT10.setName("Jalebi");
@@ -103,6 +112,7 @@ public class MockMenuData {
         foodDT10.setDeliveryTime(30);
         foodDT10.setImageId("f10.jpg");
         foodDT10.setCostForTwo(40000);
+        foodDT10.setPromoted(false);
 
         FoodDTO foodDT11=new FoodDTO();
         foodDT11.setName("North Indian Medium Thali");
@@ -112,6 +122,7 @@ public class MockMenuData {
         foodDT11.setDeliveryTime(30);
         foodDT11.setImageId("f11.jpg");
         foodDT11.setCostForTwo(40000);
+        foodDT11.setPromoted(false);
 
         FoodDTO foodDTO12=new FoodDTO();
         foodDTO12.setName("Rasgulla");
@@ -121,6 +132,7 @@ public class MockMenuData {
         foodDTO12.setDeliveryTime(30);
         foodDTO12.setImageId("f12.jpg");
         foodDTO12.setCostForTwo(40000);
+        foodDTO12.setPromoted(false);
 
         FoodDTO foodDT13=new FoodDTO();
         foodDT13.setName("Rice Roti Curry");
@@ -130,6 +142,7 @@ public class MockMenuData {
         foodDT13.setDeliveryTime(30);
         foodDT13.setImageId("f13.webp");
         foodDT13.setCostForTwo(40000);
+        foodDT13.setPromoted(false);
 
         FoodDTO foodDT14=new FoodDTO();
         foodDT14.setName("South Indian Thali");
@@ -139,6 +152,7 @@ public class MockMenuData {
         foodDT14.setDeliveryTime(30);
         foodDT14.setImageId("f2.jpg");
         foodDT14.setCostForTwo(40000);
+        foodDT14.setPromoted(false);
 
         FoodDTO foodDT15=new FoodDTO();
         foodDT15.setName("South Indian Thali");
@@ -148,6 +162,7 @@ public class MockMenuData {
         foodDT15.setDeliveryTime(30);
         foodDT15.setImageId("f3.jpg");
         foodDT15.setCostForTwo(40000);
+        foodDT15.setPromoted(false);
 
 
 
