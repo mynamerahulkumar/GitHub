@@ -22,18 +22,18 @@ public class ItemMockData {
         ItemDTO itemDTO=new ItemDTO();
         itemDTO.setName("Biryani");
         itemDTO.setPrice(230f);
-        itemDTO.setCategory("Main_Course");
-
+        itemDTO.setDescription("The main course is food that is served as the main dish in a multi-course meal. It is often served after the entrée. In the United States, the main course may be called the \"entrée\".");
+        itemDTO.setId(0);
         ItemDTO itemDTO1=new ItemDTO();
         itemDTO1.setName("Burgers");
         itemDTO1.setPrice(450f);
-        itemDTO1.setCategory("Dinner Course");
-
+        itemDTO1.setDescription("The main course is food that is served as the main dish in a multi-course meal. It is often served after the entrée. In the United States, the main course may be called the \"entrée\".");
+        itemDTO1.setId(1);
         ItemDTO itemDTO2=new ItemDTO();
         itemDTO2.setName("Paratha");
         itemDTO2.setPrice(235f);
-        itemDTO2.setCategory("Main_Course");
-
+        itemDTO2.setDescription("The main course is food that is served as the main dish in a multi-course meal. It is often served after the entrée. In the United States, the main course may be called the \"entrée\".");
+        itemDTO2.setId(2);
         items.add(itemDTO1);
         items.add(itemDTO);
         items.add(itemDTO2);
@@ -57,18 +57,21 @@ public class ItemMockData {
         ItemDTO itemDTO3=new ItemDTO();
         itemDTO3.setName("Biryani");
         itemDTO3.setPrice(230f);
-
+        itemDTO3.setId(3);
+        itemDTO3.setDescription("Typical South Indian meal consists of poori or chapati, rice, side dishes, accompaniments, and sweet");
         ItemDTO itemDTO4=new ItemDTO();
         itemDTO4.setName("Idli Vada");
         itemDTO4.setPrice(450f);
-
+        itemDTO4.setId(4);
+        itemDTO4.setDescription("Typical South Indian meal consists of poori or chapati, rice, side dishes, accompaniments, and sweet");
         ItemDTO itemDTO5=new ItemDTO();
         itemDTO5.setName("Dosa");
         itemDTO5.setPrice(235f);
+        itemDTO5.setId(5);
+        itemDTO5.setDescription("Typical South Indian meal consists of poori or chapati, rice, side dishes, accompaniments, and sweet");
         items1.add(itemDTO3);
         items1.add(itemDTO4);
         items1.add(itemDTO5);
-
 
         menuDTO1.setItemDTO(items1);
         menuDTO1.setCuisines(cuisines1);
@@ -88,17 +91,20 @@ public class ItemMockData {
         ItemDTO itemDTO6=new ItemDTO();
         itemDTO6.setName("Veg Biryani");
         itemDTO6.setPrice(230f);
-        itemDTO6.setCategory("Snacks");
+        itemDTO6.setDescription("snack is a small portion of food that is smaller than a regular meal, generally consumed between meals. Snacks are defined as smaller, less structured meal that are not eaten during regular meal times, such as breakfast (morning),");
+        itemDTO6.setId(6);
 
         ItemDTO itemDTO7=new ItemDTO();
         itemDTO7.setName("Pizza");
         itemDTO7.setPrice(450f);
-        itemDTO7.setCategory("Snacks");
+        itemDTO7.setDescription("snack is a small portion of food that is smaller than a regular meal, generally consumed between meals. Snacks are defined as smaller, less structured meal that are not eaten during regular meal times, such as breakfast (morning),");
+        itemDTO7.setId(7);
 
         ItemDTO itemDTO8=new ItemDTO();
         itemDTO8.setName("Burgers");
         itemDTO8.setPrice(235f);
-        itemDTO8.setCategory("Snacks");
+        itemDTO8.setDescription("snack is a small portion of food that is smaller than a regular meal, generally consumed between meals. Snacks are defined as smaller, less structured meal that are not eaten during regular meal times, such as breakfast (morning),");
+        itemDTO8.setId(8);
 
         items3.add(itemDTO6);
         items3.add(itemDTO7);

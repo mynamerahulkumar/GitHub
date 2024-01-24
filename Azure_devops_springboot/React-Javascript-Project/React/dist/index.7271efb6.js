@@ -35297,7 +35297,9 @@ const RestaurantMenu = ()=>{
                 lineNumber: 26,
                 columnNumber: 9
             }, undefined),
-            categories.map((category)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restauarantCategoryDefault.default), {}, category.id, false, {
+            categories.map((category)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restauarantCategoryDefault.default), {
+                    data: category
+                }, category.id, false, {
                     fileName: "src/components/RestaurantMenu.js",
                     lineNumber: 29,
                     columnNumber: 17
@@ -35370,10 +35372,59 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-const RestauarantCategory = ()=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
+var _itemList = require("./ItemList");
+var _itemListDefault = parcelHelpers.interopDefault(_itemList);
+const RestauarantCategory = ({ data })=>{
+    console.log(data);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "w-6/12 mx-auto my-4 bg-gray-50 p-4 shadow-lg ",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "flex justify-between",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                            className: "font-bold text-lg",
+                            children: [
+                                data.name,
+                                " (",
+                                data.itemDTO.length,
+                                ")"
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/RestauarantCategory.js",
+                            lineNumber: 12,
+                            columnNumber: 9
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                            children: "\u2B07\uFE0F"
+                        }, void 0, false, {
+                            fileName: "src/components/RestauarantCategory.js",
+                            lineNumber: 13,
+                            columnNumber: 9
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/RestauarantCategory.js",
+                    lineNumber: 11,
+                    columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _itemListDefault.default), {
+                    items: data.itemDTO
+                }, void 0, false, {
+                    fileName: "src/components/RestauarantCategory.js",
+                    lineNumber: 15,
+                    columnNumber: 9
+                }, undefined)
+            ]
+        }, void 0, true, {
+            fileName: "src/components/RestauarantCategory.js",
+            lineNumber: 7,
+            columnNumber: 9
+        }, undefined)
+    }, void 0, false, {
         fileName: "src/components/RestauarantCategory.js",
-        lineNumber: 3,
+        lineNumber: 6,
         columnNumber: 9
     }, undefined);
 };
@@ -35383,6 +35434,84 @@ var _c;
 $RefreshReg$(_c, "RestauarantCategory");
 
   $parcel$ReactRefreshHelpers$d018.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","./ItemList":"kZjho","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"kZjho":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$1342 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$1342.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const ItemList = ({ items })=>{
+    console.log(items);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: items.map((item)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "p-2 m-2 border-black border-b-2 text-left",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "py-2",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                children: item.name
+                            }, void 0, false, {
+                                fileName: "src/components/ItemList.js",
+                                lineNumber: 8,
+                                columnNumber: 17
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                children: [
+                                    "-\u20B9",
+                                    item.price
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/ItemList.js",
+                                lineNumber: 9,
+                                columnNumber: 17
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/ItemList.js",
+                        lineNumber: 7,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            className: "text-xs",
+                            children: item.description
+                        }, void 0, false, {
+                            fileName: "src/components/ItemList.js",
+                            lineNumber: 12,
+                            columnNumber: 17
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/components/ItemList.js",
+                        lineNumber: 11,
+                        columnNumber: 17
+                    }, undefined)
+                ]
+            }, item.id, true, {
+                fileName: "src/components/ItemList.js",
+                lineNumber: 6,
+                columnNumber: 13
+            }, undefined))
+    }, void 0, false, {
+        fileName: "src/components/ItemList.js",
+        lineNumber: 4,
+        columnNumber: 9
+    }, undefined);
+};
+_c = ItemList;
+exports.default = ItemList;
+var _c;
+$RefreshReg$(_c, "ItemList");
+
+  $parcel$ReactRefreshHelpers$1342.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
