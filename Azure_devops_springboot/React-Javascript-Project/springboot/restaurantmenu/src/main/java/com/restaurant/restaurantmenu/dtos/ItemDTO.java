@@ -10,4 +10,5 @@ public class ItemDTO {
     public float price;
     public int id;
     public String description;
+    public String imageId;
 }

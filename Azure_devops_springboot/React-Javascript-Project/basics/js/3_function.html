@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       let  isNamePragya=true;
+        function changeMyName(){
+            if(isNamePragya==true){
+            document.getElementById("name").innerHTML="Rahul Kumar";
+            isNamePragya=false;
+            }
+            else{
+                document.getElementById("name").innerHTML="Pragya Singh";
+                isNamePragya=true;
+            }
+            
+        }
+        function myStateName(){
+            document.getElementById("state").innerHTML="My State name is Bihar";
+        }
+    </script>
+</head>
+<body>
+    <h1 id="name">Pragya Singh</h1>
+    <button onclick="changeMyName()">Change Name </button>
+    <h2>What is your state Name?</h2>
+    <h3 id="state"></h3>
+    <button onclick="myStateName()">Answer</button>
+    
+</body>
+</html>

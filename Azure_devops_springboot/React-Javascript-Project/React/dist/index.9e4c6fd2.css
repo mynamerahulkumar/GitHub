@@ -260,6 +260,11 @@ img, video {
   margin: 1rem;
 }
 
+.mx-10 {
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -283,6 +288,10 @@ img, video {
   height: 380px;
 }
 
+.w-3\/12 {
+  width: 25%;
+}
+
 .w-56 {
   width: 14rem;
 }
@@ -291,8 +300,20 @@ img, video {
   width: 50%;
 }
 
+.w-9\/12 {
+  width: 75%;
+}
+
 .w-\[300px\] {
   width: 300px;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .flex-wrap {

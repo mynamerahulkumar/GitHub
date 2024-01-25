@@ -1,18 +1,23 @@
 import ItemList from "./ItemList";
+import {useState} from 'react';
 
 const RestauarantCategory=({data})=>{
     console.log(data);
-    return (
+    const[showItems,setShowItems]=useState(false)
+    const handleClick=()=>{
+        setShowItems(!showItems);
+}   
+ return (
         <div>
         <div className="w-6/12 mx-auto my-4 bg-gray-50 p-4 shadow-lg ">
     
         {/* Header */}
 
-        <div className="flex justify-between">
+        <div className="flex justify-between cursor-pointer" onClick={handleClick}>
         <span className="font-bold text-lg">{data.name} ({data.itemDTO.length})</span>
         <span>⬇️</span>
         </div>
-        <ItemList items={data.itemDTO}/>
+       {showItems && <ItemList items={data.itemDTO}/>}
         </div>
         </div>
     )
