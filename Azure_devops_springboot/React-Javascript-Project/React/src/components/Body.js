@@ -1,8 +1,9 @@
 import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import { restList } from "../utils/data";
 import { Shimmer } from "./Shimmer";
-import { useState,useEffect } from "react";
+import { useState,useEffect,useContext } from "react";
 import { Link } from "react-router-dom";
+import UserContext from "../utils/UserContext";
 const Body=()=>{
     // state variable-super powerful variable 
     const [listOfrestListRestaurant,setListofRestaurant]=useState([]); // default values can be also passed ,updated data in set variable
@@ -12,7 +13,7 @@ const Body=()=>{
     const[searchText,setSearchText]=useState("");
 
     const RestaurantCardPromoted=withPromotedLabel(RestaurantCard); // it has return method return()
-
+    const{loggedInUser,setUserName}=useContext(UserContext);
     useEffect(()=>{
         fetchData();
 
@@ -72,6 +73,10 @@ const Body=()=>{
             >
                         Top Rated Button
             </button>
+            <div className=" m-4 p-4 flex items-center">
+            <label>UserName:</label>
+            <input type="text" className="border border-black p-2" value={loggedInUser} onChange={(e)=>setUserName(e.target.value)}></input>
+            </div>
             </div>
           
           </div>

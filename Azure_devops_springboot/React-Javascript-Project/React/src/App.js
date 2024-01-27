@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 
 
@@ -10,7 +10,7 @@ import Contact from "./components/Contact";
 import Error from "./components/Errro";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { Shimmer } from "./components/Shimmer";
-
+import UserContext from "./utils/UserContext";
 /*
 Dynamic bundling-break down app into smaller chunks
 Lazy loading -when we go to grocery page come then grocery page loaded -on demand loading 
@@ -22,11 +22,19 @@ const Grocery=lazy(()=>
 
 
 const AppLayout=()=>{
+    const[userName,setUserName]=useState('');
+    useEffect(()=>{
+        // call method
+        const data="Rahul Singh";
+        setUserName(data);
+    },[]);
     return (
+        <UserContext.Provider value={{loggedInUser:userName,setUserName}}>
         <div className="app">
             <Header/>
             <Outlet/>{/**render the children */}
         </div>
+        </UserContext.Provider>
     )
 }
 
