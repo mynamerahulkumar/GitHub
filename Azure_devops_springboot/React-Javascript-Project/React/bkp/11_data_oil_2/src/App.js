@@ -11,9 +11,6 @@ import Error from "./components/Errro";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { Shimmer } from "./components/Shimmer";
 import UserContext from "./utils/UserContext";
-import { Provider } from "react-redux";
-import appStore from "./utils/appStore";
-import Cart from "./components/Cart";
 /*
 Dynamic bundling-break down app into smaller chunks
 Lazy loading -when we go to grocery page come then grocery page loaded -on demand loading 
@@ -32,14 +29,12 @@ const AppLayout=()=>{
         setUserName(data);
     },[]);
     return (
-        <Provider store={appStore}>
         <UserContext.Provider value={{loggedInUser:userName,setUserName}}>
         <div className="app">
             <Header/>
             <Outlet/>{/**render the children */}
         </div>
         </UserContext.Provider>
-        </Provider>
     )
 }
 
@@ -70,10 +65,6 @@ const appRouter=createBrowserRouter([
             {
                 path:"/restaurant/:restId",
                 element:<RestaurantMenu/>
-            },
-            {
-                path:"/cart",
-                element:<Cart/>
             }
         ],
         errorElement:<Error/>

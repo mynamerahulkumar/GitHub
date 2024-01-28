@@ -1,19 +1,6 @@
-import { useDispatch } from "react-redux";
 import { images } from "../utils/image";
-import { addItem } from "../utils/CartSlice";
+
 const ItemList=({items})=>{
-    const dispatch=useDispatch();
-    const handleItemCartAdd=(item)=>{
-        //dispatch actions
-        dispatch(addItem(item));
-        console.log(item);
-
-        // it will create a object and create payload 
-        // reducers:{
-        //     payload:"pizza"
-        // }
-
-    }
     console.log(items)
     return (
         <div >
@@ -30,9 +17,7 @@ const ItemList=({items})=>{
                 </div>
                 <div className="w-3/12 p-4">
                 <div className="absolute">
-                <button className=" bg-black text-white shadow-lg mx-10"
-                onClick={()=>handleItemCartAdd(item)}
-                >Add+</button>
+                <button className=" bg-black text-white shadow-lg mx-10">Add+</button>
                 </div>
                 <img src={images[index]} className="w-full"/>
                 
