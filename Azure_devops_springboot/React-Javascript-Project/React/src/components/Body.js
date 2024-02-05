@@ -28,7 +28,7 @@ const Body=()=>{
     });
 
     const json=await data.json();
-    console.log("response-"+json.Body);
+    console.log("response--"+json);
     setListofRestaurant(json);
     setFilteredList(json);
     
@@ -47,6 +47,7 @@ const Body=()=>{
             <div className="search m-4 p-4">
                 <input type="text" className="border border-solid border-black"
                 value={searchText} 
+                data-testid="searchInput"
                 onChange={(e)=>{
                     setSearchText(e.target.value);
                 }}

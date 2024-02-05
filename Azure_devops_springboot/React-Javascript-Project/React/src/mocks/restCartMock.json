@@ -1,0 +1,18 @@
+{
+    "restData": {
+        "id": 9,
+        "avgRating": 3.9,
+        "name": "Jalebi",
+        "costForTwo": 40000,
+        "deliveryTime": 30,
+        "cuisines": [
+            "Burgers",
+            "Biryani",
+            "Snacks",
+            "Fast Food"
+        ],
+        "imageId": "f10.jpg",
+        "promoted": false
+    },
+    "indexData": 9
+}

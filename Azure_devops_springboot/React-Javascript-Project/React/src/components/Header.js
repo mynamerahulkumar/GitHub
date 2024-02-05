@@ -15,7 +15,8 @@ import { useSelector } from 'react-redux';
     return (
         <div className="flex justify-between bg-pink-100 shadow-lg sm:bg-yellow-50">
             <div className="logo-container">
-               <img className="w-56" src={require('../../assets/images/food_logo.png')} />
+               {/* <img className="w-56" src={require('../../assets/images/food_logo.png')} /> */}
+               <h1>Namaste Restaurant</h1>
             </div>
            <div className="flex items-center">
            <ul className="flex p-4 m-4">

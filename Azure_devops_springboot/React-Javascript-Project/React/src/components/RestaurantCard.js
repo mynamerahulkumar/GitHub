@@ -4,6 +4,7 @@ const styleCard={
     backgroundColor:"#f0f0f0",
 };
 const RestaurantCard=(props)=>{
+    console.log(props);
     const{restData,indexData}=props;
     const{name,
         cuisines,
