@@ -1,7 +1,6 @@
 import Shimmer from "../utils/Shimmer";
 
 const VideoCard=({video_info})=>{
-    console.log(video_info);
     if(video_info===undefined){
         return (
             <Shimmer/>
