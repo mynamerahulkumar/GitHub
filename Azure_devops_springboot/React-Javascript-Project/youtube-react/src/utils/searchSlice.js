@@ -8,7 +8,7 @@ const searchSlice=createSlice({
     reducers:{
         cacheResults:(state,action)=>{
             // {"ip" : ["iphone","iphone11"]}
-            state={...action.payload,...state}
+            state=Object.assign(state,action.payload)
         }
     }
 })

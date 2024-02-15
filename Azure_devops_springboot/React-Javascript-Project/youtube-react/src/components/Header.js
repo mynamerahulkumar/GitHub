@@ -17,7 +17,6 @@ const Header=()=>{
      * searchQuery="iphone"
      * 
      */
-    const dispatch=useDispatch();
     const[showSuggestion,setShowSuggestion]=useState(false);
 
 
