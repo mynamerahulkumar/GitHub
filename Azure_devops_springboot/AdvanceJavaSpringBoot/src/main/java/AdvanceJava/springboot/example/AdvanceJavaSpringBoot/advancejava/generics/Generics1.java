@@ -1,4 +1,4 @@
-package AdvanceJava.springboot.example.AdvanceJavaSpringBoot.advancejava.collections;
+package AdvanceJava.springboot.example.AdvanceJavaSpringBoot.advancejava.generics;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +25,7 @@ public class Generics1 {
         List<Sand> sands=new ArrayList<>(2);
         sands.add(new Sand());
         sands.add(new Sand());
-       // t.insertAll( sands);// java does not understand if list of sand has relation with list of good-invariant
+        t.insertAll( sands);// java does not understand if list of sand has relation with list of good-invariant
         t.insertAll((List) sands);
         t.prinstatus();
 
@@ -52,7 +52,7 @@ public class Generics1 {
         void  prinstatus(){
             items.forEach(item-> System.out.println(item));
         }
-        void insertAll(List<T> itemlist){
+        void insertAll(List<? extends T> itemlist){ // it will accept all which extends T->covariance
             items.addAll(itemlist);
         }
         void insert(T item){

@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
 import { useEffect, useState } from "react";
 import { YOUTUBE_SEARCH_URL } from "../utils/Constants";
-import store from "../utils/store";
 import { cacheResults } from "../utils/searchSlice";
 
 const Header=()=>{
@@ -36,11 +35,9 @@ const Header=()=>{
       
     },[searchQuery])
     const callSearchQuery= async ()=>{
-        console.log("API search call")
             const data= await fetch(YOUTUBE_SEARCH_URL+searchQuery);
             const json=await data.json();
             setSuggestions(json[1]);
-            console.log("API response-"+json[1]);
             console.log("API call-"+searchQuery);
             //  send the object
             dispatch(cacheResults(
