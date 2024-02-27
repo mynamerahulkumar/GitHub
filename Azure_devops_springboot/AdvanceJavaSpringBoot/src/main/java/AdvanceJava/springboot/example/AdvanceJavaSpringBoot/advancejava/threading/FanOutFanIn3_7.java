@@ -1,6 +1,7 @@
 package AdvanceJava.springboot.example.AdvanceJavaSpringBoot.advancejava.threading;
 
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class FanOutFanIn3_7 {
     /**
@@ -20,6 +21,7 @@ public class FanOutFanIn3_7 {
 
         int[]item;
 
+
         ArrayList<Thread> threads;
 
         public FanOutFanInJob(int count,int thredCount){
@@ -27,6 +29,7 @@ public class FanOutFanIn3_7 {
             this.threads=new ArrayList<Thread>(thredCount);
             this.item=new int[count];
             this.item[0]=0;
+
         }
       synchronized   void  printNext(){
 
