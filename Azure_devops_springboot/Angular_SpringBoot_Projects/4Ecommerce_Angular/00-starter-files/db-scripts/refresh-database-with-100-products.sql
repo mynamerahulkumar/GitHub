@@ -16,6 +16,8 @@ CREATE TABLE IF NOT EXISTS `full-stack-ecommerce`.`product_category` (
 ENGINE=InnoDB
 AUTO_INCREMENT = 1;
 
+CREATE INDEX category_name_index on `full-stack-ecommerce`.`product_category`(`category_name` );
+
 -- -----------------------------------------------------
 -- Table `full-stack-ecommerce`.`product`
 -- -----------------------------------------------------
