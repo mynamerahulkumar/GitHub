@@ -30,11 +30,36 @@ public class RottenOrange {
             Pair<Integer,Integer>p=queue.poll();
             int row=p.getKey();
             int col=p.getValue();
-
+            if(row==-1){
+                // we finished one round of processing
+                minutesElapsed++;
+                //to avoid endless loop
+                if(!queue.isEmpty()){
+                    queue.offer(new Pair<>(-1,-1));
+                }
+            }
+            else{
+                // this is rotten orange
+                // this would contaminate its orange
+                for(int []d:directions){
+                    int neighBoursRows=row+d[0];
+                    int neighBoursCols=col+d[1];
+                    if(neighBoursRows>=0 && neighBoursRows<R &&
+                        neighBoursCols>=0 && neighBoursCols<C){
+                        if(grid[neighBoursRows][neighBoursCols]==1){
+                            // this orange would be contaminated
+                            grid[neighBoursRows][neighBoursCols]=2;
+                            freshOranges--;
+                            // this orange can contaminate other orages
+                            queue.offer(new Pair<>(neighBoursRows,neighBoursCols));
+                        }
+                    }
+                }
+            }
         }
 
 
-        return  res;
+        return  freshOranges==0?minutesElapsed:-1;
     }
 
 }
